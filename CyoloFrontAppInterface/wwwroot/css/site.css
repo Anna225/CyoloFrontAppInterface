@@ -1,0 +1,121 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+.landing h1 {
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 200px;
+    font-size: 120px;
+    text-shadow: 0 0 80px black;
+}
+
+.thumb-text {
+    text-transform: uppercase;
+}
+
+body {
+    margin-bottom: 60px;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-size: cover;
+    position: relative;
+    background-image: url('../images/back.jpg');
+}
+
+.body::before {
+    content: "";
+    background-image: url('../images/back.jpg');
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0.1;
+}
+
+
+form > div {
+    margin-bottom: 15px;
+}
+
+section {
+    border: 1px solid lightgrey;
+    padding: 16px;
+    border-radius: 10px;
+}
+
+header {
+    background-color: #25408f;
+}
+
+nav a {
+    color: white;
+}
+
+.navbar-brand {
+    text-decoration: none;
+}
+
+.bg-login {
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    margin: 16px;
+}
+
+    .bg-login .col-md-1,
+    .bg-login .col-md-4 {
+        padding-bottom: 15px;
+        padding-top: 15px;
+    }
+
+.bg-image {
+    padding: 15px;
+}
+
+
+.bg-image > div {
+    background-image: url("../images/main.jpeg");
+    background-repeat: no-repeat;
+    background-position: right top;
+    width: 100%;
+    height: 100%;
+}
+
+.bg-image img {
+    margin-left: auto;
+    float: right;
+}
+
+button.btn {
+    background-color: #25408f;
+    border: none;
+}
+
+button.btn:hover {
+    background-color: #39A7F1;
+    border: none;
+}
+
+a.align-right {
+    float: right;
+}
+
+td {
+    word-break: break-word;
+}
