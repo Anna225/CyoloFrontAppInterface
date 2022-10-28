@@ -5,6 +5,7 @@ using Microsoft.Extensions.Logging;
 using System.Text;
 using Microsoft.AspNetCore.Http;
 using CyoloFrontAppInterface.Models;
+using Xamarin.Essentials;
 
 namespace CyoloFrontAppInterface.Controllers
 {
@@ -25,6 +26,10 @@ namespace CyoloFrontAppInterface.Controllers
         [HttpGet]
         public IActionResult Login()
         {
+            if (!string.IsNullOrEmpty(HttpContext.Session.GetString("userinfo")))
+            {
+                return RedirectToAction("Index", "CourtCase", new { area = "Manage" });
+            }
             ViewData["Message"] = HttpContext.Session.GetString("userinfo");
             return View();
         }

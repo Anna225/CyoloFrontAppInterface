@@ -17,15 +17,13 @@ namespace CyoloFrontAppInterface.Areas.Manage.Controllers
             _logger = logger;
         }
         // GET: CourtCaseController
-        public async Task<ActionResult> Index(string date, string email)
+        public async Task<ActionResult> Index()
         {
-            if (date == null)
+            string date = DateTime.Now.ToString("yyyy-MM-dd");
+            string email = HttpContext.Session.GetString("userinfo")!;
+            if (string.IsNullOrEmpty(email))
             {
-                date = DateTime.Now.ToString("yyyy-MM-dd");
-            }
-            if (email == null)
-            {
-                email = HttpContext.Session.GetString("userinfo")!;
+                return RedirectToAction("Login", "User", new { area = "" });
             }
             BackendServerAPI ls = new BackendServerAPI();
             try
@@ -48,6 +46,11 @@ namespace CyoloFrontAppInterface.Areas.Manage.Controllers
         // GET: CourtCaseController/GetByEmailAndDate
         public async Task<ActionResult> GetByEmailAndDate(string date, string name)
         {
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("userinfo")))
+            {
+                return RedirectToAction("Login", "User", new { area = "" });
+            }
+
             if (date == null)
             {
                 date = DateTime.Now.ToString("yyyy-MM-dd");
@@ -72,6 +75,10 @@ namespace CyoloFrontAppInterface.Areas.Manage.Controllers
         // GET: CourtCaseController/Match
         public async Task<ActionResult> Match(string courtCaseNo)
         {
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("userinfo")))
+            {
+                return RedirectToAction("Login", "User", new { area = "" });
+            }
             BackendServerAPI ls = new BackendServerAPI();
             ViewBag.CourtTypes = await ls.GetAllCourtTypes();
             ViewBag.CourtLocations = await ls.GetAllCourtLocations();
