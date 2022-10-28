@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "nDZX44uLoqbdJeES7JTPwQZg22gp8F7wXCHkxLT3Swg=",
+  "Hash": "Pog98OYzcvBB8K+8uRZWusOa/7SoVeXkggerxSJHZ0Y=",
   "Source": "CyoloFrontAppInterface",
   "BasePath": "_content/CyoloFrontAppInterface",
   "Mode": "Default",
@@ -1103,23 +1103,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
-    },
-    {
-      "Identity": "D:\\HHHH\\CyoloFrontAppInterface\\CyoloFrontAppInterface\\wwwroot\\images\\back.jpg",
-      "SourceId": "CyoloFrontAppInterface",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\HHHH\\CyoloFrontAppInterface\\CyoloFrontAppInterface\\wwwroot\\",
-      "BasePath": "_content/CyoloFrontAppInterface",
-      "RelativePath": "images/back.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\back.jpg"
     },
     {
       "Identity": "D:\\HHHH\\CyoloFrontAppInterface\\CyoloFrontAppInterface\\wwwroot\\images\\main.jpeg",

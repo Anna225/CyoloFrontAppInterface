@@ -8,65 +8,65 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = CyoloFrontAppInterface
 build_property.RootNamespace = CyoloFrontAppInterface
-build_property.ProjectDir = D:\HHHH\CyoloFrontAppInterface\CyoloFrontAppInterface\
+build_property.ProjectDir = C:\Code\CyoloFrontAppInterface\CyoloFrontAppInterface\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\HHHH\CyoloFrontAppInterface\CyoloFrontAppInterface
+build_property.MSBuildProjectDirectory = C:\Code\CyoloFrontAppInterface\CyoloFrontAppInterface
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/HHHH/CyoloFrontAppInterface/CyoloFrontAppInterface/Areas/Manage/Views/CourtCase/getbyemailanddate.cshtml]
+[C:/Code/CyoloFrontAppInterface/CyoloFrontAppInterface/Areas/Manage/Views/CourtCase/getbyemailanddate.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXENvdXJ0Q2FzZVxnZXRieWVtYWlsYW5kZGF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HHHH/CyoloFrontAppInterface/CyoloFrontAppInterface/Areas/Manage/Views/CourtCase/Index.cshtml]
+[C:/Code/CyoloFrontAppInterface/CyoloFrontAppInterface/Areas/Manage/Views/CourtCase/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXENvdXJ0Q2FzZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HHHH/CyoloFrontAppInterface/CyoloFrontAppInterface/Areas/Manage/Views/CourtCase/match.cshtml]
+[C:/Code/CyoloFrontAppInterface/CyoloFrontAppInterface/Areas/Manage/Views/CourtCase/match.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXENvdXJ0Q2FzZVxtYXRjaC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HHHH/CyoloFrontAppInterface/CyoloFrontAppInterface/Areas/Manage/Views/_ViewStart.cshtml]
+[C:/Code/CyoloFrontAppInterface/CyoloFrontAppInterface/Areas/Manage/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXF9WaWV3U3RhcnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HHHH/CyoloFrontAppInterface/CyoloFrontAppInterface/Views/Home/Index.cshtml]
+[C:/Code/CyoloFrontAppInterface/CyoloFrontAppInterface/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HHHH/CyoloFrontAppInterface/CyoloFrontAppInterface/Views/Home/Privacy.cshtml]
+[C:/Code/CyoloFrontAppInterface/CyoloFrontAppInterface/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HHHH/CyoloFrontAppInterface/CyoloFrontAppInterface/Views/Shared/Error.cshtml]
+[C:/Code/CyoloFrontAppInterface/CyoloFrontAppInterface/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HHHH/CyoloFrontAppInterface/CyoloFrontAppInterface/Views/Shared/_LoginPartial.cshtml]
+[C:/Code/CyoloFrontAppInterface/CyoloFrontAppInterface/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HHHH/CyoloFrontAppInterface/CyoloFrontAppInterface/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Code/CyoloFrontAppInterface/CyoloFrontAppInterface/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HHHH/CyoloFrontAppInterface/CyoloFrontAppInterface/Views/User/Login.cshtml]
+[C:/Code/CyoloFrontAppInterface/CyoloFrontAppInterface/Views/User/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HHHH/CyoloFrontAppInterface/CyoloFrontAppInterface/Views/User/Register.cshtml]
+[C:/Code/CyoloFrontAppInterface/CyoloFrontAppInterface/Views/User/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HHHH/CyoloFrontAppInterface/CyoloFrontAppInterface/Views/_ViewImports.cshtml]
+[C:/Code/CyoloFrontAppInterface/CyoloFrontAppInterface/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HHHH/CyoloFrontAppInterface/CyoloFrontAppInterface/Views/_ViewStart.cshtml]
+[C:/Code/CyoloFrontAppInterface/CyoloFrontAppInterface/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HHHH/CyoloFrontAppInterface/CyoloFrontAppInterface/Views/Shared/_Layout.cshtml]
+[C:/Code/CyoloFrontAppInterface/CyoloFrontAppInterface/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-ytp8spra66
