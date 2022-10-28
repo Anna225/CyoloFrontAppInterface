@@ -2,7 +2,7 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
-    ViewData["Title"] = "Welcome NADIA OUZOUBAIR";
+    ViewData["Title"] = "Welcome " + @ViewBag.fullName;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <h1 class="thumb-text">@ViewData["Title"]</h1>
@@ -11,7 +11,7 @@
     <div class="row">
         <div class="form-group col-md-4">
             @Html.Label("name", "Lawyer's Full Name")
-            @Html.TextBox("name", (string)@ViewBag.Email, new { @class = "form-control", @placeholder="Ex:Nadia Ouzoubair", @onkeypress="keypresshandle(event)" })
+            @Html.TextBox("name", (string)@ViewBag.fullName, new { @class = "form-control", @placeholder="Ex:Nadia Ouzoubair", @onkeypress="keypresshandle(event)" })
         </div>
         <div class="form-group col-md-4">
             @Html.Label("date", "Date")
@@ -82,12 +82,6 @@
         }
     </tbody>
 </table>
-
-<style>
-    body {
-        background-image: url("../images/empty.jpg");
-    }
-</style>
 <script>
     function submitForm() {
         $("#searchform").submit();

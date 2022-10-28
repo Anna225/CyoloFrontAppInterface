@@ -15,6 +15,7 @@ namespace CyoloFrontAppInterface.Controllers
 
         public IActionResult Index()
         {
+            ViewData["Message"] = HttpContext.Session.GetString("userinfo");
             return View();
         }
 

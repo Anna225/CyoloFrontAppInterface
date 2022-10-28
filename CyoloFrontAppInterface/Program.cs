@@ -1,4 +1,5 @@
 using CyoloFrontAppInterface.Data;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,7 +13,11 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
+
 builder.Services.AddControllersWithViews();
+builder.Services.AddSession(options => {
+    options.Cookie.Name = "userinfo";
+});
 
 var app = builder.Build();
 
@@ -30,6 +35,7 @@ else
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+app.UseSession();
 
 app.UseRouting();
 
@@ -37,10 +43,13 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapAreaControllerRoute(
-            name: "CourtcaseManage",
+            name: "CourtCaseManage",
             areaName: "Manage",
             pattern: "Manage/{controller=CourtCase}/{action=Index}/{id?}");
-
+app.MapAreaControllerRoute(
+            name: "AuthManage",
+            areaName: "Manage",
+            pattern: "Manage/{controller=Auth}/{action=Index}/{id?}");
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

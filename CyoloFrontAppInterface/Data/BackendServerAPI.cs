@@ -18,11 +18,46 @@ namespace CyoloFrontAppInterface.Data
 
         }
 
+        
+        public async Task<dynamic> GetLawyerByEmail(string email)
+        {
+            var request = new RestRequest($"/api/Custom/GetlawyerByEmail/{email}");
+            request.AddHeader("ocp-apim-subscription-key", "d23d9c7c11da4b228417e567c85fa80c");
+            var response = await _client.GetAsync(request);
+            return JsonConvert.DeserializeObject<dynamic>(response.Content);
+        }
         public async Task<dynamic> GetCourtCaseByEmailAndDate(string email, string date)
         {
             var request = new RestRequest($"/api/Custom/CourtCaseByDateAndEmail/{date}/{email}");
             request.AddHeader("ocp-apim-subscription-key", "d23d9c7c11da4b228417e567c85fa80c");
             var response = await _client.GetAsync(request);
+            return JsonConvert.DeserializeObject<dynamic>(response.Content);
+        }
+        public async Task<dynamic> Login(UserDto userdto)
+        {
+            var request = new RestRequest($"/api/Auth/Login");
+            request.AddHeader("ocp-apim-subscription-key", "d23d9c7c11da4b228417e567c85fa80c");
+            request.AddHeader("Accept", "application/json");
+            request.AddJsonBody(userdto);
+            var response = await _client.PostAsync(request);
+            return JsonConvert.DeserializeObject<dynamic>(response.Content);
+        }
+        public async Task<dynamic> IsExist(UserDto userdto)
+        {
+            var request = new RestRequest($"/api/Auth/IsExist");
+            request.AddHeader("ocp-apim-subscription-key", "d23d9c7c11da4b228417e567c85fa80c");
+            request.AddHeader("Accept", "application/json");
+            request.AddJsonBody(userdto);
+            var response = await _client.PostAsync(request);
+            return JsonConvert.DeserializeObject<dynamic>(response.Content);
+        }
+        public async Task<dynamic> Register(UserDto userdto)
+        {
+            var request = new RestRequest($"/api/Auth/Register");
+            request.AddHeader("ocp-apim-subscription-key", "d23d9c7c11da4b228417e567c85fa80c");
+            request.AddHeader("Accept", "application/json");
+            request.AddJsonBody(userdto);
+            var response = await _client.PostAsync(request);
             return JsonConvert.DeserializeObject<dynamic>(response.Content);
         }
 

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "hdmnr8trVg46qDVpOpfXLzFLFFrzFNEZFhxIcf1Ot/91p3LsocJPng8lQ2AlLaG2hbB1ph+NJczpVLzICa8pXQ==",
+  "dgSpecHash": "JCum8lMjwyF8mQyvWr1J1MJEW48b+LQB/O0BdEmBwXPI+I9nGbk3j2BRz8tqaDlf2XZ3vhswcT1MwUoGq8FnKw==",
   "success": true,
   "projectFilePath": "D:\\HHHH\\CyoloFrontAppInterface\\CyoloFrontAppInterface\\CyoloFrontAppInterface.csproj",
   "expectedPackageFiles": [
@@ -140,6 +140,7 @@
     "C:\\Users\\Yaroslov\\.nuget\\packages\\system.net.http\\4.3.0\\system.net.http.4.3.0.nupkg.sha512",
     "C:\\Users\\Yaroslov\\.nuget\\packages\\system.net.primitives\\4.3.0\\system.net.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\Yaroslov\\.nuget\\packages\\system.net.sockets\\4.3.0\\system.net.sockets.4.3.0.nupkg.sha512",
+    "C:\\Users\\Yaroslov\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
     "C:\\Users\\Yaroslov\\.nuget\\packages\\system.objectmodel\\4.3.0\\system.objectmodel.4.3.0.nupkg.sha512",
     "C:\\Users\\Yaroslov\\.nuget\\packages\\system.private.uri\\4.3.2\\system.private.uri.4.3.2.nupkg.sha512",
     "C:\\Users\\Yaroslov\\.nuget\\packages\\system.reflection\\4.3.0\\system.reflection.4.3.0.nupkg.sha512",
@@ -183,7 +184,8 @@
     "C:\\Users\\Yaroslov\\.nuget\\packages\\system.threading.timer\\4.3.0\\system.threading.timer.4.3.0.nupkg.sha512",
     "C:\\Users\\Yaroslov\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512",
     "C:\\Users\\Yaroslov\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
-    "C:\\Users\\Yaroslov\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
+    "C:\\Users\\Yaroslov\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
+    "C:\\Users\\Yaroslov\\.nuget\\packages\\xamarin.essentials\\1.7.3\\xamarin.essentials.1.7.3.nupkg.sha512"
   ],
   "logs": []
 }

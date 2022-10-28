@@ -17,14 +17,14 @@
             <label for="courttype">CourtType:</label>
             @Html.DropDownList("courttype",
                 new SelectList(ViewBag.CourtTypes),
-                "RECHTBANK VAN EERSTE AANLEG",
+                "",
                 new { @class = "form-control", @id = "courttype" })
         </div>
         <div class="form-group col-md-6">
             <label for="courtlocation">CourtLocation:</label>
             @Html.DropDownList("courtlocation",
             new SelectList(ViewBag.CourtLocations),
-                "ANTWERPEN AFDELING ANTWERPEN SECTIES BURGERLIJK EN FAMILIE",
+                "",
             new { @class = "form-control", @id = "courtlocation" })
         </div>
     </div>
@@ -33,7 +33,7 @@
             <label for="chamberid">ChamberID:</label>
             @Html.DropDownList("chamberid",
                 new SelectList(ViewBag.ChamberIds),
-                "AF_01",
+                "",
                 new { @class = "form-control", @id = "chamberid" })
         </div>
         <div class="form-group col-md-4">
@@ -113,12 +113,6 @@
         }
     </tbody>
 </table>
-
-<style>
-    body {
-        background-image: url("/images/empty.jpg");
-    }
-</style>
 <script>
     function submitForm() {
         $("#searchform").submit();

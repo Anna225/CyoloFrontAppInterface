@@ -1,17 +1,10 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using CyoloFrontAppInterface.Data;
 using System.ComponentModel.DataAnnotations;
-using System.Data;
 using System.Xml.Linq;
-using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
-using CyoloFrontAppInterface.Data;
 
 namespace CyoloFrontAppInterface.Models
 {
-    public class User
+    public class Register
     {
         [Required]
         [Display(Name = "Email")]
@@ -22,8 +15,11 @@ namespace CyoloFrontAppInterface.Models
         [Display(Name = "Password")]
         public string? Password { get; set; }
 
-        [Display(Name = "Remember on this computer")]
-        public bool RememberMe { get; set; }
+        [Required]
+        [Compare("Password", ErrorMessage = "Confirm password doesn't match, Type again !")]
+        [DataType(DataType.Password)]
+        [Display(Name = "ConfirmPassword")]
+        public string? ConfirmPassword { get; set; }
 
         /// <summary>
         /// Checks if user with given password exists in the database
@@ -45,7 +41,7 @@ namespace CyoloFrontAppInterface.Models
             bool result = false;
             try
             {
-                result = await ls.Login(userdto);
+                result = await ls.IsExist(userdto);
             }
             catch (Exception ex)
             {
@@ -61,7 +57,7 @@ namespace CyoloFrontAppInterface.Models
         /// <param name="_useremail">User name</param>
         /// <param name="_password">User password</param>
         /// <returns>True if user exist and password is correct</returns>
-        public async Task<bool> Register(string _useremail, string _password)
+        public async Task<bool> Store(string _useremail, string _password)
         {
             UserDto userdto = new UserDto
             {

@@ -90,6 +90,10 @@
             "RestSharp": {
               "target": "Package",
               "version": "[108.0.2, )"
+            },
+            "Xamarin.Essentials": {
+              "target": "Package",
+              "version": "[1.7.3, )"
             }
           },
           "imports": [

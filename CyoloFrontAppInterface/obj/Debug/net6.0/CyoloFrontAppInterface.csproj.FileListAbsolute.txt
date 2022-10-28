@@ -630,6 +630,7 @@ D:\HHHH\CyoloFrontAppInterface\CyoloFrontAppInterface\bin\Debug\net6.0\System.Ru
 D:\HHHH\CyoloFrontAppInterface\CyoloFrontAppInterface\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
 D:\HHHH\CyoloFrontAppInterface\CyoloFrontAppInterface\bin\Debug\net6.0\System.Security.Permissions.dll
 D:\HHHH\CyoloFrontAppInterface\CyoloFrontAppInterface\bin\Debug\net6.0\System.Windows.Extensions.dll
+D:\HHHH\CyoloFrontAppInterface\CyoloFrontAppInterface\bin\Debug\net6.0\Xamarin.Essentials.dll
 D:\HHHH\CyoloFrontAppInterface\CyoloFrontAppInterface\bin\Debug\net6.0\cs\Microsoft.CodeAnalysis.resources.dll
 D:\HHHH\CyoloFrontAppInterface\CyoloFrontAppInterface\bin\Debug\net6.0\de\Microsoft.CodeAnalysis.resources.dll
 D:\HHHH\CyoloFrontAppInterface\CyoloFrontAppInterface\bin\Debug\net6.0\es\Microsoft.CodeAnalysis.resources.dll

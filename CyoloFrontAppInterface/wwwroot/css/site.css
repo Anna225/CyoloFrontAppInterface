@@ -14,13 +14,13 @@ html {
 }
 
 .landing h1 {
-    color: white;
+    color: black;
     font-weight: bold;
     text-transform: uppercase;
     text-align: center;
-    line-height: 200px;
-    font-size: 120px;
-    text-shadow: 0 0 80px black;
+    line-height: 480px;
+    font-size: 50px;
+    text-shadow: 0 0 80px white;
 }
 
 .thumb-text {
@@ -34,19 +34,6 @@ body {
     background-color: transparent;
     background-size: cover;
     position: relative;
-    background-image: url('../images/back.jpg');
-}
-
-.body::before {
-    content: "";
-    background-image: url('../images/back.jpg');
-    background-size: cover;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    opacity: 0.1;
 }
 
 
