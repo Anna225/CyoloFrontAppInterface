@@ -4,8 +4,6 @@
 @{
     ViewData["Title"] = "Welcome NADIA OUZOUBAIR";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewData["Today"] = DateTime.Now.ToString("yyyy-MM-dd");
-    ViewData["CurTime"] = DateTime.Now.ToString("hh:mm");
 }
 
 <h1 class="thumb-text">@ViewData["Title"]</h1>
@@ -16,35 +14,35 @@
         <div class="form-group col-md-6">
             <label for="courttype">CourtType:</label>
             @Html.DropDownList("courttype",
-                new SelectList(ViewBag.CourtTypes),
-                @ViewBag.CourtCase.courtType,
-                new { @class = "form-control", @id = "courttype" })
+        new SelectList(ViewBag.CourtTypes),
+        @ViewBag.CourtCase.CourtType,
+        new { @class = "form-control", @id = "courttype" })
         </div>
         <div class="form-group col-md-6">
             <label for="courtlocation">CourtLocation:</label>
             @Html.DropDownList("courtlocation",
-            new SelectList(ViewBag.CourtLocations),
-                @ViewBag.CourtCase.courtLocation,
-            new { @class = "form-control", @id = "courtlocation" })
+        new SelectList(ViewBag.CourtLocations),
+        @ViewBag.CourtCase.CourtLocation,
+        new { @class = "form-control", @id = "courtlocation" })
         </div>
     </div>
     <div class="row">
         <div class="form-group col-md-4">
             <label for="chamberid">ChamberID:</label>
             @Html.DropDownList("chamberid",
-                new SelectList(ViewBag.ChamberIds),
-                @ViewBag.CourtCase.chamberId,
-                new { @class = "form-control", @id = "chamberid" })
+        new SelectList(ViewBag.ChamberIds),
+        @ViewBag.CourtCase.ChamberID,
+        new { @class = "form-control", @id = "chamberid" })
         </div>
         <div class="form-group col-md-4">
             <label for="hearingdate">HearingDate:</label>
             <div class="form-group">
-                @Html.TextBox("hearingdate", (string)@ViewBag.CourtCase.hearingDate, new { @class = "form-control", @placeholder="Ex:1970-01-01" })
+                @Html.TextBox("hearingdate", (string)@ViewBag.CourtCase.HearingDate, new { @class = "form-control", @placeholder="Ex:1970-01-01" })
             </div>
         </div>
         <div class="form-group col-md-4">
             <label for="hearingtime">HearingTime:</label>
-            @Html.TextBox("hearingtime", (string)@ViewBag.CourtCase.hearingTime, new { @class = "form-control", @placeholder="Ex:14:37" })
+            @Html.TextBox("hearingtime", (string)@ViewBag.CourtCase.HearingTime, new { @class = "form-control", @placeholder="Ex:14:37" })
         </div>
     </div>
     <div class="row">
@@ -66,11 +64,11 @@
     </thead>
     <tbody>
         <tr>
-            <td>@ViewBag.CourtCase.courtType</td>
-            <td>@ViewBag.CourtCase.courtLocation</td>
-            <td>@ViewBag.CourtCase.chamberId</td>
-            <td>@ViewBag.CourtCase.hearingDate</td>
-            <td>@ViewBag.CourtCase.hearingTime</td>
+            <td>@ViewBag.CourtCase.CourtType</td>
+            <td>@ViewBag.CourtCase.CourtLocation</td>
+            <td>@ViewBag.CourtCase.ChamberID</td>
+            <td>@ViewBag.CourtCase.HearingDate</td>
+            <td>@ViewBag.CourtCase.HearingTime</td>
         </tr>
     </tbody>
 </table>
@@ -97,8 +95,11 @@
             <tr>
                 <td colspan="8" class="text-center">No matching data found.</td>
             </tr>
-        }else{ 
-            @foreach (var item in ViewBag.AvailableModel){
+        }
+        else
+        {
+            @foreach (var item in ViewBag.AvailableModel)
+            {
                 string[] emailArr = splitEmail(@item.lawyer.email);
                 string[] phoneArr = splitPhone(@item.lawyer.phone);
                 <tr>

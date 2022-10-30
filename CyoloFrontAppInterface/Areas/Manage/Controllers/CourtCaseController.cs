@@ -1,8 +1,10 @@
 ﻿using CyoloFrontAppInterface.Controllers;
 using CyoloFrontAppInterface.Data;
+using CyoloFrontAppInterface.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using Xamarin.Essentials;
 
@@ -71,7 +73,7 @@ namespace CyoloFrontAppInterface.Areas.Manage.Controllers
             ViewBag.Email = name;
             return View();
         }
-        [AllowAnonymous]
+        
         // GET: CourtCaseController/Match
         public async Task<ActionResult> Match(string courtCaseNo)
         {
@@ -84,6 +86,50 @@ namespace CyoloFrontAppInterface.Areas.Manage.Controllers
             ViewBag.CourtLocations = await ls.GetAllCourtLocations();
             ViewBag.ChamberIds = await ls.GetAllChamberIDs();
             ViewBag.Model = await ls.GetLawyersByCourtcaseno(courtCaseNo);
+            ViewBag.CourtCase = await ls.GetCourtCaseByNo(courtCaseNo);
+            ViewBag.AvailableModel = await ls.GetAvailableLawyersByCourtCaseNo(courtCaseNo);
+            ViewData["Message"] = HttpContext.Session.GetString("userinfo");
+            return View();
+        }
+
+        [HttpGet]
+        // GET: CourtCaseController/Approve
+        public async Task<JsonResult?> Approve(string caseno)
+        {
+            JsonResult? result = null;
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("userinfo")))
+            {
+                return result;
+            }
+            BackendServerAPI ls = new BackendServerAPI();
+            var lawyer = await ls.GetLawyerByEmail(HttpContext.Session.GetString("userinfo"));
+            var response = await ls.SetAvailableCourtCaseNo(caseno, lawyer.id);
+            result = new JsonResult(response);
+            return new JsonResult(result);
+        }
+
+        // POST: CourtCaseController/GetByCourtCase
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> GetByCourtCase(IFormCollection collection)
+        {
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("userinfo")))
+            {
+                return RedirectToAction("Login", "User", new { area = "" });
+            }
+            BackendServerAPI ls = new BackendServerAPI();
+            ViewBag.CourtTypes = await ls.GetAllCourtTypes();
+            ViewBag.CourtLocations = await ls.GetAllCourtLocations();
+            ViewBag.ChamberIds = await ls.GetAllChamberIDs();
+            SearchDto retval = new SearchDto {
+                CourtType = collection["courttype"],
+                CourtLocation = collection["courtlocation"],
+                ChamberID = collection["chamberid"],
+                HearingDate = collection["hearingdate"],
+                HearingTime = collection["hearingtime"]
+            };
+            ViewBag.CourtCase = retval;
+            ViewBag.AvailableModel = await ls.GetByCourtCase(collection);
             ViewData["Message"] = HttpContext.Session.GetString("userinfo");
             return View();
         }
@@ -155,6 +201,15 @@ namespace CyoloFrontAppInterface.Areas.Manage.Controllers
             {
                 return View();
             }
+        }
+    }
+
+    public class AjaxRequest
+    {
+        public string caseno
+        {
+            get;
+            set;
         }
     }
 }

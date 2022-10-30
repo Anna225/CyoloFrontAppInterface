@@ -555,6 +555,12 @@ D:\HHHH\CyoloFrontAppInterface\CyoloFrontAppInterface\bin\Debug\net6.0\CyoloFron
 D:\HHHH\CyoloFrontAppInterface\CyoloFrontAppInterface\bin\Debug\net6.0\Humanizer.dll
 D:\HHHH\CyoloFrontAppInterface\CyoloFrontAppInterface\bin\Debug\net6.0\MessagePack.dll
 D:\HHHH\CyoloFrontAppInterface\CyoloFrontAppInterface\bin\Debug\net6.0\MessagePack.Annotations.dll
+D:\HHHH\CyoloFrontAppInterface\CyoloFrontAppInterface\bin\Debug\net6.0\System.Web.Mvc.dll
+D:\HHHH\CyoloFrontAppInterface\CyoloFrontAppInterface\bin\Debug\net6.0\System.Web.Razor.dll
+D:\HHHH\CyoloFrontAppInterface\CyoloFrontAppInterface\bin\Debug\net6.0\System.Web.Helpers.dll
+D:\HHHH\CyoloFrontAppInterface\CyoloFrontAppInterface\bin\Debug\net6.0\System.Web.WebPages.Deployment.dll
+D:\HHHH\CyoloFrontAppInterface\CyoloFrontAppInterface\bin\Debug\net6.0\System.Web.WebPages.Razor.dll
+D:\HHHH\CyoloFrontAppInterface\CyoloFrontAppInterface\bin\Debug\net6.0\System.Web.WebPages.dll
 D:\HHHH\CyoloFrontAppInterface\CyoloFrontAppInterface\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
 D:\HHHH\CyoloFrontAppInterface\CyoloFrontAppInterface\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 D:\HHHH\CyoloFrontAppInterface\CyoloFrontAppInterface\bin\Debug\net6.0\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
@@ -606,6 +612,7 @@ D:\HHHH\CyoloFrontAppInterface\CyoloFrontAppInterface\bin\Debug\net6.0\Microsoft
 D:\HHHH\CyoloFrontAppInterface\CyoloFrontAppInterface\bin\Debug\net6.0\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
 D:\HHHH\CyoloFrontAppInterface\CyoloFrontAppInterface\bin\Debug\net6.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
 D:\HHHH\CyoloFrontAppInterface\CyoloFrontAppInterface\bin\Debug\net6.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+D:\HHHH\CyoloFrontAppInterface\CyoloFrontAppInterface\bin\Debug\net6.0\Microsoft.Web.Infrastructure.dll
 D:\HHHH\CyoloFrontAppInterface\CyoloFrontAppInterface\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
 D:\HHHH\CyoloFrontAppInterface\CyoloFrontAppInterface\bin\Debug\net6.0\Newtonsoft.Json.dll
 D:\HHHH\CyoloFrontAppInterface\CyoloFrontAppInterface\bin\Debug\net6.0\NuGet.Common.dll

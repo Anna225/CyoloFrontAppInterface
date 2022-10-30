@@ -18,8 +18,7 @@
             @Html.TextBox("date", (string)@ViewBag.Today, new { @class = "form-control", @placeholder="Ex:1970-01-01", @onkeypress="keypresshandle(event)" })
         </div>
         <div class="form-group col-md-4">
-            @Html.Label("datefor", "")
-            <br />
+            <hr style="line-height: 24px; visibility: hidden; margin-bottom: 14px;" />
             <a class="btn btn-success" onclick="submitForm()">Search</a>
             <a class="btn btn-warning align-right" href="@Url.Action($"Uploads")">Upload Agendas</a>
         </div>
@@ -67,14 +66,12 @@
                         @{
                             string courtcaseid = Convert.ToString(item.courtcase.courtCaseNo);
                         }
-                        @Html.ActionLink("Available", "Match", "CourtCase",
-                new { courtCaseNo =  courtcaseid },
-                new { @class = "btn btn-success"}
-                )
+                        <a href="#" class="btn btn-success btn-approve" data-caseno="@item.courtcase.courtCaseNo" data-email="@ViewData["Message"]">Available</a>
                         @Html.ActionLink("Request", "Match", "CourtCase",
-                new { courtCaseNo =  courtcaseid },
-                new { @class = "btn btn-info"}
-                )
+                            new { courtCaseNo =  courtcaseid },
+                            new { @class = "btn btn-warning"}
+                        )
+                        
                     </td>
                 </tr>
                 i++;
