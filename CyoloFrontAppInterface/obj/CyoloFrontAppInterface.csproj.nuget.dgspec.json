@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\HHHH\\CyoloFrontAppInterface\\CyoloFrontAppInterface\\CyoloFrontAppInterface.csproj": {}
+    "C:\\Code\\CyoloFrontAppInterface\\CyoloFrontAppInterface\\CyoloFrontAppInterface.csproj": {}
   },
   "projects": {
-    "D:\\HHHH\\CyoloFrontAppInterface\\CyoloFrontAppInterface\\CyoloFrontAppInterface.csproj": {
+    "C:\\Code\\CyoloFrontAppInterface\\CyoloFrontAppInterface\\CyoloFrontAppInterface.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\HHHH\\CyoloFrontAppInterface\\CyoloFrontAppInterface\\CyoloFrontAppInterface.csproj",
+        "projectUniqueName": "C:\\Code\\CyoloFrontAppInterface\\CyoloFrontAppInterface\\CyoloFrontAppInterface.csproj",
         "projectName": "CyoloFrontAppInterface",
-        "projectPath": "D:\\HHHH\\CyoloFrontAppInterface\\CyoloFrontAppInterface\\CyoloFrontAppInterface.csproj",
-        "packagesPath": "C:\\Users\\Yaroslov\\.nuget\\packages\\",
-        "outputPath": "D:\\HHHH\\CyoloFrontAppInterface\\CyoloFrontAppInterface\\obj\\",
+        "projectPath": "C:\\Code\\CyoloFrontAppInterface\\CyoloFrontAppInterface\\CyoloFrontAppInterface.csproj",
+        "packagesPath": "C:\\Users\\mohit\\.nuget\\packages\\",
+        "outputPath": "C:\\Code\\CyoloFrontAppInterface\\CyoloFrontAppInterface\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Yaroslov\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\mohit\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

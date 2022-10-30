@@ -58,6 +58,7 @@ namespace CyoloFrontAppInterface.Data
             request.AddHeader("Accept", "application/json");
             SearchDto searchdto = new SearchDto
             {
+                CourtCaseNo = collection["courtcaseno"],
                 CourtType = collection["courttype"],
                 CourtLocation = collection["courtlocation"],
                 ChamberID = collection["chamberid"],

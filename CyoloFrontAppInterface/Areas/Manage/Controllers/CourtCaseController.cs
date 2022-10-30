@@ -87,8 +87,10 @@ namespace CyoloFrontAppInterface.Areas.Manage.Controllers
             ViewBag.ChamberIds = await ls.GetAllChamberIDs();
             ViewBag.Model = await ls.GetLawyersByCourtcaseno(courtCaseNo);
             ViewBag.CourtCase = await ls.GetCourtCaseByNo(courtCaseNo);
+            LawyerDto lawyer = await ls.GetLawyerByEmail(HttpContext.Session.GetString("userinfo"));
             ViewBag.AvailableModel = await ls.GetAvailableLawyersByCourtCaseNo(courtCaseNo);
-            ViewData["Message"] = HttpContext.Session.GetString("userinfo");
+            ViewData["Message"] = lawyer.name + " " + lawyer.sureName;
+            ViewBag.No = courtCaseNo;
             return View();
         }
 
@@ -123,6 +125,7 @@ namespace CyoloFrontAppInterface.Areas.Manage.Controllers
             ViewBag.ChamberIds = await ls.GetAllChamberIDs();
             SearchDto retval = new SearchDto {
                 CourtType = collection["courttype"],
+                CourtCaseNo = collection["courtcaseno"],
                 CourtLocation = collection["courtlocation"],
                 ChamberID = collection["chamberid"],
                 HearingDate = collection["hearingdate"],
@@ -131,6 +134,9 @@ namespace CyoloFrontAppInterface.Areas.Manage.Controllers
             ViewBag.CourtCase = retval;
             ViewBag.AvailableModel = await ls.GetByCourtCase(collection);
             ViewData["Message"] = HttpContext.Session.GetString("userinfo");
+            ViewBag.Number = collection["courtcaseno"];
+            LawyerDto lawyer = await ls.GetLawyerByEmail(HttpContext.Session.GetString("userinfo"));
+            ViewBag.Name = lawyer.name + " " + lawyer.sureName;
             return View();
         }
 
