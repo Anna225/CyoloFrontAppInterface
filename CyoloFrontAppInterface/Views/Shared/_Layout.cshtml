@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="~/css/lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
     <title>CYOLO</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
@@ -105,30 +105,51 @@
             $(".btn-upload").click(function (e) {
                 e.preventDefault();
                 var params = {
-                    courtcaseno: $("#courtcaseno").val(),
-                    courttype: $("#courttype").val(),
-                    courtlocation: $("#courtlocation").val(),
-                    uploaderemail: $("#uploaderemail").val(),
-                    firstname: $("#firstname").val(),
-                    lastname: $("#lastname").val(),
-                    chamberid: $("#chamberid").val(),
-                    hearingdate: $("#hearingdate").val(),
-                    hearingtime: $("#hearingtime").val(),
-                    hearingtype: $("#hearingtype").val(),
+                    "courtcaseno": $("#courtcaseno").val(),
+                    "courttype": $("#courttype").val(),
+                    "courtlocation": $("#courtlocation").val(),
+                    "uploaderemail": $("#uploaderemail").val(),
+                    "firstname": $("#firstname").val(),
+                    "lastname": $("#lastname").val(),
+                    "chamberid": $("#chamberid").val(),
+                    "hearingdate": $("#hearingdate").val(),
+                    "hearingtime": $("#hearingtime").val(),
+                    "hearingtype": $("#hearingtype").val(),
                 };
+
+                var data = new Object();
+                data.courtCaseNo = "wewe";
+                data.courtType = "wewe";
+                data.courtLocation = "wewe";
+                data.uploaderEmail = "wewe";
+                data.firstName = "wewe";
+                data.lastName = "wewe";
+                data.hearingDate = "wewe";
+                data.hearingTime = "wewe";
+                data.hearingType = "wewe";
+                data.chamberId = "wewe";
+
+                console.log(data);
+                console.log(JSON.stringify(params));
 
                 if (params != null) {
                     $.ajax({
                         type: "POST",
                         url: "/Agenda/Create",
-                        data: params,
-                        contentType: "application/json; charset=utf-8",
-                        dataType: "json",
+                        async: false,
+                        crossDomain: true,
+                        cache: false,
+                        data: JSON.stringify(params),
+                        contentType: 'application/x-www-form-urlencoded',
                         success: function (response) {
                             if (response != null) {
                                 $("#myModal").modal('hide');
+                                $("#rsDlg .modal-body").html("Upload succesully.");
+                                $("#rsDlg").modal();
                             } else {
                                 $("#myModal").modal("hide");
+                                $("#rsDlg .modal-body").html("Upload failed.");
+                                $("#rsDlg").modal();
                             }
                         },
                         failure: function (response) {

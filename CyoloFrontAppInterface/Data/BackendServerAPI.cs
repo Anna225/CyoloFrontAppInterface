@@ -19,8 +19,16 @@ namespace CyoloFrontAppInterface.Data
         {
 
         }
-
         
+        public async Task<dynamic> UploadAgenda(AgendaDto agenda)
+        {
+            var request = new RestRequest($"/api/Agenda");
+            request.AddHeader("ocp-apim-subscription-key", "d23d9c7c11da4b228417e567c85fa80c");
+            request.AddHeader("Accept", "application/json");
+            request.AddJsonBody(agenda);
+            var response = await _client.PostAsync(request);
+            return JsonConvert.DeserializeObject<dynamic>(response.Content);
+        }
         public async Task<LawyerDto> GetLawyerByEmail(string email)
         {
             var request = new RestRequest($"/api/Custom/GetlawyerByEmail/{email}");

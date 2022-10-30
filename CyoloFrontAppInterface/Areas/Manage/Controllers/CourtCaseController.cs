@@ -42,6 +42,11 @@ namespace CyoloFrontAppInterface.Areas.Manage.Controllers
             ViewData["Message"] = HttpContext.Session.GetString("userinfo");
             ViewBag.Today = date;
             ViewBag.Email = email;
+
+            ViewBag.CourtTypes = await ls.GetAllCourtTypes();
+            ViewBag.CourtLocations = await ls.GetAllCourtLocations();
+            ViewBag.ChamberIds = await ls.GetAllChamberIDs();
+
             return View();
         }
 

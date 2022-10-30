@@ -45,12 +45,12 @@ form > div {
 
 section {
     border: 1px solid lightgrey;
-    padding: 30px;
+    padding: 16px;
     border-radius: 10px;
 }
 
 section .form-check-input {
-    margin-left: 0;
+    margin-left: 0.0em;
 }
 
 header {
@@ -127,4 +127,9 @@ button.btn.btn-warning:hover {
     background-color: #AF76F5;
     border: 1px solid #AF76F5;
     color: black;
+}
+
+#myModal label {
+    vertical-align: middle;
+    line-height: 40px;
 }

@@ -86,82 +86,78 @@
             <!-- Modal body -->
             <div class="modal-body">
                 <div class="row form-group">
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <label>Court Case No</label>
                     </div>
-                    <div class="col-md-9">
+                    <div class="col-md-4">
                         <input type="text" id="courtcaseno" placeholder="Court Case No" class="form-control" />
                     </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col-md-3">
-                        <label>Uploader Email</label>
+                    <div class="col-md-2">
+                        <label>UploaderEmail</label>
                     </div>
-                    <div class="col-md-9">
+                    <div class="col-md-4">
                         <input type="text" id="uploaderemail" value="" placeholder="Uploader Email" class="form-control" />
                     </div>
                 </div>
                 <div class="row form-group">
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <label>Court Type</label>
                     </div>
-                    <div class="col-md-9">
+                    <div class="col-md-10">
                         <input type="text" id="courttype" placeholder="Court Type" class="form-control" />
+                        @*@Html.DropDownList("courttype",
+                            new SelectList(ViewBag.CourtTypes),
+                            @ViewBag.CourtCase.courtType,
+                            new { @class = "form-control", @id = "courttype" })*@
                     </div>
                 </div>
                 <div class="row form-group">
-                    <div class="col-md-3">
-                        <label>Court Location</label>
+                    <div class="col-md-2">
+                        <label>CourtLocation</label>
                     </div>
-                    <div class="col-md-9">
+                    <div class="col-md-10">
                         <input type="text" id="courtlocation" placeholder="Court Location" class="form-control" />
                     </div>
                 </div>
                 <div class="row form-group">
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <label>Chamber ID</label>
                     </div>
-                    <div class="col-md-9">
+                    <div class="col-md-4">
                         <input type="text" id="chamberid" placeholder="Chamber ID" class="form-control" />
                     </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <label>Hearing Type</label>
                     </div>
-                    <div class="col-md-9">
+                    <div class="col-md-4">
                         <input type="text" id="hearingtype" placeholder="Hearing Type" class="form-control" />
                     </div>
                 </div>
                 <div class="row form-group">
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <label>First Name</label>
                     </div>
-                    <div class="col-md-9">
+                    <div class="col-md-4">
                         <input type="text" id="firstname" placeholder="First Name" class="form-control" />
                     </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <label>Last Name</label>
                     </div>
-                    <div class="col-md-9">
+                    <div class="col-md-4">
                         <input type="text" id="lastname" placeholder="Last Name" class="form-control" />
                     </div>
                 </div>
                 <div class="row form-group">
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <label>Hearing Date</label>
                     </div>
-                    <div class="col-md-9">
+                    <div class="col-md-4">
                         <input type="text" id="hearingdate" placeholder="Hearing Date" class="form-control" />
                     </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <label>Hearing Time</label>
                     </div>
-                    <div class="col-md-9">
+                    <div class="col-md-4">
                         <input type="text" id="hearingtime" placeholder="Hearing Time" class="form-control" />
                     </div>
                 </div>
@@ -169,7 +165,7 @@
 
             <!-- Modal footer -->
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary btn-upload" data-dismiss="modal">Create</button>
+                <button type="button" class="btn btn-primary btn-upload" data-dismiss="modal">Upload</button>
             </div>
 
         </div>
