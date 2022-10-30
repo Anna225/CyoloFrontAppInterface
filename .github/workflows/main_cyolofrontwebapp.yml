@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy ASP.Net Core app to Azure Web App - cyolo-stage-001
+name: Build and deploy ASP.Net Core app to Azure Web App - CyoloFrontWebApp
 
 on:
   push:
@@ -51,7 +51,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'cyolo-stage-001'
+          app-name: 'CyoloFrontWebApp'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_5D00F660CE2B4754ABF2FDA05AAB2FA0 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_4D79890B880745F5A6C05DC299B5ABE0 }}
           package: .
