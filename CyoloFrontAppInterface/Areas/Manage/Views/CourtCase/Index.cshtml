@@ -19,7 +19,7 @@
         <div class="form-group col-md-4">
             <hr style="line-height: 24px; visibility: hidden; margin-bottom: 14px;" />
             <a class="btn btn-success" onclick="submitForm()">Search</a>
-            <a class="btn btn-warning align-right" href="@Url.Action($"Uploads")">Upload Agendas</a>
+            <button type="button" class="btn btn-warning align-right" data-toggle="modal" data-target="#myModal">Upload Agendas</button>
         </div>
     </div>
 }
@@ -72,6 +72,109 @@
         }
     </tbody>
 </table>
+<!-- The Modal -->
+<div class="modal" id="myModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Upload Agenda</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="row form-group">
+                    <div class="col-md-3">
+                        <label>Court Case No</label>
+                    </div>
+                    <div class="col-md-9">
+                        <input type="text" id="courtcaseno" placeholder="Court Case No" class="form-control" />
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-3">
+                        <label>Uploader Email</label>
+                    </div>
+                    <div class="col-md-9">
+                        <input type="text" id="uploaderemail" value="" placeholder="Uploader Email" class="form-control" />
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-3">
+                        <label>Court Type</label>
+                    </div>
+                    <div class="col-md-9">
+                        <input type="text" id="courttype" placeholder="Court Type" class="form-control" />
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-3">
+                        <label>Court Location</label>
+                    </div>
+                    <div class="col-md-9">
+                        <input type="text" id="courtlocation" placeholder="Court Location" class="form-control" />
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-3">
+                        <label>Chamber ID</label>
+                    </div>
+                    <div class="col-md-9">
+                        <input type="text" id="chamberid" placeholder="Chamber ID" class="form-control" />
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-3">
+                        <label>Hearing Type</label>
+                    </div>
+                    <div class="col-md-9">
+                        <input type="text" id="hearingtype" placeholder="Hearing Type" class="form-control" />
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-3">
+                        <label>First Name</label>
+                    </div>
+                    <div class="col-md-9">
+                        <input type="text" id="firstname" placeholder="First Name" class="form-control" />
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-3">
+                        <label>Last Name</label>
+                    </div>
+                    <div class="col-md-9">
+                        <input type="text" id="lastname" placeholder="Last Name" class="form-control" />
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-3">
+                        <label>Hearing Date</label>
+                    </div>
+                    <div class="col-md-9">
+                        <input type="text" id="hearingdate" placeholder="Hearing Date" class="form-control" />
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-3">
+                        <label>Hearing Time</label>
+                    </div>
+                    <div class="col-md-9">
+                        <input type="text" id="hearingtime" placeholder="Hearing Time" class="form-control" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-upload" data-dismiss="modal">Create</button>
+            </div>
+
+        </div>
+    </div>
+</div>
 <script>
     function submitForm() {
         $("#searchform").submit();

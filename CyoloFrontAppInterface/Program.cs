@@ -42,6 +42,7 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
+
 app.MapAreaControllerRoute(
             name: "CourtCaseManage",
             areaName: "Manage",

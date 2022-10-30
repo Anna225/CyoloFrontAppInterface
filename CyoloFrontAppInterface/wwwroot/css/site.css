@@ -105,7 +105,7 @@ button.btn:hover {
     border: none;
 }
 
-a.align-right {
+.align-right {
     float: right;
 }
 
@@ -115,4 +115,16 @@ td {
 
 table * {
     font-size: 15px;
+}
+
+button.btn.btn-warning {
+    background-color: orange;
+    color: black;
+    border: 1px solid orange;
+}
+
+button.btn.btn-warning:hover {
+    background-color: #AF76F5;
+    border: 1px solid #AF76F5;
+    color: black;
 }
