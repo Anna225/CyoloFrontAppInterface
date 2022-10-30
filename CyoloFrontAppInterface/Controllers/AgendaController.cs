@@ -12,8 +12,32 @@ namespace CyoloFrontAppInterface.Controllers
 
         [HttpPost]
         // POST: AgendaController/Create
-        public async Task<JsonResult?> Create(AgendaDto agenda)
+        public async Task<JsonResult?> Create(
+            string courtcaseno,
+            string courttype,
+            string courtlocation,
+            string uploaderemail,
+            string firstname,
+            string lastname,
+            string chamberid,
+            string hearingdate,
+            string hearingtime,
+            string hearingtype
+        )
         {
+            AgendaDto agenda = new AgendaDto
+            {
+                courtCaseNo = courtcaseno,
+                courtType = courttype,
+                courtLocation = courtlocation,
+                hearingDate = hearingdate,
+                hearingTime = hearingtime,
+                hearingType = hearingtype,
+                uploaderEmail = uploaderemail,
+                firstName = firstname,
+                lastName = lastname,
+                chamberId = chamberid
+            };
             BackendServerAPI ls = new BackendServerAPI();
             var response = await ls.UploadAgenda(agenda);
             return new JsonResult(response);

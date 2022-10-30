@@ -105,41 +105,23 @@
             $(".btn-upload").click(function (e) {
                 e.preventDefault();
                 var params = {
-                    "courtcaseno": $("#courtcaseno").val(),
-                    "courttype": $("#courttype").val(),
-                    "courtlocation": $("#courtlocation").val(),
-                    "uploaderemail": $("#uploaderemail").val(),
-                    "firstname": $("#firstname").val(),
-                    "lastname": $("#lastname").val(),
-                    "chamberid": $("#chamberid").val(),
-                    "hearingdate": $("#hearingdate").val(),
-                    "hearingtime": $("#hearingtime").val(),
-                    "hearingtype": $("#hearingtype").val(),
+                    courtcaseno: $("#courtcaseno").val(),
+                    courttype: $("#courttype").val(),
+                    courtlocation: $("#courtlocation").val(),
+                    uploaderemail: $("#uploaderemail").val(),
+                    firstname: $("#firstname").val(),
+                    lastname: $("#lastname").val(),
+                    chamberid: $("#chamberid").val(),
+                    hearingdate: $("#hearingdate").val(),
+                    hearingtime: $("#hearingtime").val(),
+                    hearingtype: $("#hearingtype").val(),
                 };
-
-                var data = new Object();
-                data.courtCaseNo = "wewe";
-                data.courtType = "wewe";
-                data.courtLocation = "wewe";
-                data.uploaderEmail = "wewe";
-                data.firstName = "wewe";
-                data.lastName = "wewe";
-                data.hearingDate = "wewe";
-                data.hearingTime = "wewe";
-                data.hearingType = "wewe";
-                data.chamberId = "wewe";
-
-                console.log(data);
-                console.log(JSON.stringify(params));
 
                 if (params != null) {
                     $.ajax({
                         type: "POST",
                         url: "/Agenda/Create",
-                        async: false,
-                        crossDomain: true,
-                        cache: false,
-                        data: JSON.stringify(params),
+                        data: params,
                         contentType: 'application/x-www-form-urlencoded',
                         success: function (response) {
                             if (response != null) {
