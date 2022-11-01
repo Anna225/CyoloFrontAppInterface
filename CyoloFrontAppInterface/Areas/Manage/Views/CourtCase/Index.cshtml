@@ -11,16 +11,18 @@
         <div class="form-group col-md-4">
             @Html.Label("name", "Lawyer's Full Name")
             @Html.TextBox("name", (string)@fullName, new { @class = "form-control", @placeholder="Ex:Nadia Ouzoubair", @onkeypress="keypresshandle(event)" })
+            <p class="error">Please enter lawyer's name.</p>
         </div>
-        <div class="form-group col-md-4">
+        <div class="form-group col-md-3">
             @Html.Label("date", "Date")
-            @Html.TextBox("date", (string)@ViewBag.Today, new { @class = "form-control", @placeholder="Ex:1970-01-01", @onkeypress="keypresshandle(event)" })
+            <input id="date" name="date" width="276" value="@ViewBag.Today" data-format="yyyy-mm-dd" class="form-control" onkeypress="keypresshandle(event)" placeholder="Ex:1970-01-01" />
+            <p class="error">Please select date.</p>
         </div>
-        <div class="form-group col-md-4">
+        <div class="form-group col-md-5">
             <hr style="line-height: 24px; visibility: hidden; margin-bottom: 14px;" />
             <a class="btn btn-success" onclick="submitForm()">Search</a>
             <button type="button" class="btn btn-warning align-right" data-toggle="modal" data-target="#myModal">Upload Agendas</button>
-        </div>
+        </div>      
     </div>
 }
 <p>Any suggestions for an upgrade? Please <a href="https://create@cyolo.com">contact us</a>.</p>
@@ -152,13 +154,13 @@
                         <label>Hearing Date</label>
                     </div>
                     <div class="col-md-4">
-                        <input type="text" id="hearingdate" placeholder="Hearing Date" class="form-control" />
+                        <input id="hearingdate" name="hearingdate" width="236" value="@ViewBag.Today" data-format="yyyy-mm-dd" class="form-control" placeholder="Ex:1970-01-01" />
                     </div>
                     <div class="col-md-2">
                         <label>Hearing Time</label>
                     </div>
                     <div class="col-md-4">
-                        <input type="text" id="hearingtime" placeholder="Hearing Time" class="form-control" />
+                        <input id="hearingtime" name="hearingtime" width="236" data-format="HH:mm" class="form-control" placeholder="Ex:14:23" />
                     </div>
                 </div>
             </div>
@@ -173,11 +175,39 @@
 </div>
 <script>
     function submitForm() {
+        if($("#name").val() == ''){
+            $("#name").siblings().addClass("b");
+            $("#name").focus();
+            return;
+        }else{
+            $("#name").siblings().removeClass("b");
+        }
+        if ($("#date").val() == '') {
+            $("#date").siblings().addClass("b");
+            $("#date").focus();
+            return;
+        } else {
+            $("#date").siblings().removeClass("b");
+        }
         $("#searchform").submit();
     }
     function keypresshandle(e) {
         if (e.keyCode === 13) {
             e.preventDefault();
+            if ($("#name").val() == '') {
+                $("#name").siblings().addClass("b");
+                $("#name").focus();
+                return;
+            } else {
+                $("#name").siblings().removeClass("b");
+            }
+            if ($("#date").val() == '') {
+                $("#date").siblings().addClass("b");
+                $("#date").focus();
+                return;
+            } else {
+                $("#date").siblings().removeClass("b");
+            }
             $("#searchform").submit();
         }
     }
