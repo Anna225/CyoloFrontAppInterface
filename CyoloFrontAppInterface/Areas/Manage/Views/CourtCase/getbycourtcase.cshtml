@@ -14,16 +14,18 @@
         <div class="form-group col-md-6">
             <label for="courttype">CourtType:</label>
             @Html.DropDownList("courttype",
-        new SelectList(ViewBag.CourtTypes),
-        @ViewBag.CourtCase.CourtType,
-        new { @class = "form-control", @id = "courttype" })
+                new SelectList(ViewBag.CourtTypes),
+                "",
+                new { @class = "form-control", @id = "courttype" })
+            <p class="error">Please select CourtType.</p>
         </div>
         <div class="form-group col-md-6">
             <label for="courtlocation">CourtLocation:</label>
             @Html.DropDownList("courtlocation",
-        new SelectList(ViewBag.CourtLocations),
-        @ViewBag.CourtCase.CourtLocation,
-        new { @class = "form-control", @id = "courtlocation" })
+                new SelectList(ViewBag.CourtLocations),
+                "",
+                new { @class = "form-control", @id = "courtlocation" })
+            <p class="error">Please select CourtLocation.</p>
         </div>
     </div>
     <div class="row">
@@ -31,19 +33,22 @@
             <label for="chamberid">ChamberID:</label>
             @Html.DropDownList("chamberid",
                 new SelectList(ViewBag.ChamberIds),
-                @ViewBag.CourtCase.ChamberID,
+                "",
                 new { @class = "form-control", @id = "chamberid" })
+            <p class="error">Please select ChamberID.</p>
         </div>
         <div class="form-group col-md-3">
             <label for="hearingdate">HearingDate:</label>
             <div class="form-group">
-                <input id="hearingdate" name="date" width="236" value="@ViewBag.CourtCase.hearingDate" data-format="yyyy-mm-dd" class="form-control" onkeypress="keypresshandle(event)" placeholder="Ex:1970-01-01" />
+                <input id="hearingdate" name="hearingdate" width="236" value="@ViewBag.CourtCase.hearingDate" data-format="yyyy-mm-dd" class="form-control" onkeypress="keypresshandle(event)" placeholder="Ex:1970-01-01" />
+                <p class="error">Please select hearingdate.</p>
             </div>
         </div>
         <div class="form-group col-md-3">
             <label for="hearingtime">HearingTime:</label>
             <input id="hearingtime" name="hearingtime" width="236" value="@ViewBag.CourtCase.hearingTime" data-format="HH:mm" class="form-control" placeholder="Ex:14:23" />
             <input type="hidden" name="courtcaseno" id="courtcaseno" value="@ViewBag.Number" />
+            <p class="error">Please select hearingtime.</p>
         </div>
         <div class="col-md-2">
             <hr style="line-height: 24px; visibility: hidden; margin-bottom: 14px;" />
@@ -119,6 +124,47 @@
 </table>
 <script>
     function submitForm() {
+
+        if ($("#courttype").val() == '') {
+            $("#courttype").siblings().addClass("b");
+            $("#courttype").focus();
+            return;
+        } else {
+            $("#courttype").siblings().removeClass("b");
+        }
+
+        if ($("#courtlocation").val() == '') {
+            $("#courtlocation").siblings().addClass("b");
+            $("#courtlocation").focus();
+            return;
+        } else {
+            $("#courtlocation").siblings().removeClass("b");
+        }
+
+        if ($("#chamberid").val() == '') {
+            $("#chamberid").siblings().addClass("b");
+            $("#chamberid").focus();
+            return;
+        } else {
+            $("#chamberid").siblings().removeClass("b");
+        }
+
+        if ($("#hearingdate").val() == '') {
+            $("#hearingdate").parent().siblings("p.error").addClass("b");
+            $("#hearingdate").focus();
+            return;
+        } else {
+            $("#hearingdate").parent().siblings("p.error").removeClass("b");
+        }
+
+        if ($("#hearingtime").val() == '') {
+            $("#hearingtime").parent().siblings("p.error").addClass("b");
+            $("#hearingtime").focus();
+            return;
+        } else {
+            $("#hearingtime").parent().siblings("p.error").removeClass("b");
+        }
+
         $("#searchform").submit();
     }
 </script>
