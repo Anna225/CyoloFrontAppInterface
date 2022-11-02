@@ -826,3 +826,12 @@ D:\HHHH\CyoloFrontAppInterface\CyoloFrontAppInterface\obj\Debug\net6.0\refint\Cy
 D:\HHHH\CyoloFrontAppInterface\CyoloFrontAppInterface\obj\Debug\net6.0\CyoloFrontAppInterface.pdb
 D:\HHHH\CyoloFrontAppInterface\CyoloFrontAppInterface\obj\Debug\net6.0\CyoloFrontAppInterface.genruntimeconfig.cache
 D:\HHHH\CyoloFrontAppInterface\CyoloFrontAppInterface\obj\Debug\net6.0\ref\CyoloFrontAppInterface.dll
+D:\CyoloFrontAppInterface\CyoloFrontAppInterface\bin\Debug\net6.0\System.Web.Mvc.dll
+D:\CyoloFrontAppInterface\CyoloFrontAppInterface\bin\Debug\net6.0\System.Web.Razor.dll
+D:\CyoloFrontAppInterface\CyoloFrontAppInterface\bin\Debug\net6.0\System.Web.Helpers.dll
+D:\CyoloFrontAppInterface\CyoloFrontAppInterface\bin\Debug\net6.0\System.Web.WebPages.Deployment.dll
+D:\CyoloFrontAppInterface\CyoloFrontAppInterface\bin\Debug\net6.0\System.Web.WebPages.Razor.dll
+D:\CyoloFrontAppInterface\CyoloFrontAppInterface\bin\Debug\net6.0\System.Web.WebPages.dll
+D:\CyoloFrontAppInterface\CyoloFrontAppInterface\bin\Debug\net6.0\Microsoft.Web.Infrastructure.dll
+D:\CyoloFrontAppInterface\CyoloFrontAppInterface\bin\Debug\net6.0\RestSharp.dll
+D:\CyoloFrontAppInterface\CyoloFrontAppInterface\bin\Debug\net6.0\Xamarin.Essentials.dll

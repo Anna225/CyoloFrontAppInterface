@@ -120,6 +120,87 @@
 
             $(".btn-upload").click(function (e) {
                 e.preventDefault();
+
+                if ($("#courtcaseno").val() == '') {
+                    $("#courtcaseno").siblings().addClass("b");
+                    $("#courtcaseno").focus();
+                    return;
+                } else {
+                    $("#courtcaseno").siblings().removeClass("b");
+                }
+
+                if ($("#uploaderemail").val() == '') {
+                    $("#uploaderemail").siblings().addClass("b");
+                    $("#uploaderemail").focus();
+                    return;
+                } else {
+                    $("#uploaderemail").siblings().removeClass("b");
+                }
+
+                if ($("#courttype").val() == '') {
+                    $("#courttype").siblings().addClass("b");
+                    $("#courttype").focus();
+                    return;
+                } else {
+                    $("#courttype").siblings().removeClass("b");
+                }
+
+                if ($("#courtlocation").val() == '') {
+                    $("#courtlocation").siblings().addClass("b");
+                    $("#courtlocation").focus();
+                    return;
+                } else {
+                    $("#courtlocation").siblings().removeClass("b");
+                }
+
+                if ($("#chamberid").val() == '') {
+                    $("#chamberid").siblings().addClass("b");
+                    $("#chamberid").focus();
+                    return;
+                } else {
+                    $("#chamberid").siblings().removeClass("b");
+                }
+
+                if ($("#hearingtype").val() == '') {
+                    $("#hearingtype").siblings().addClass("b");
+                    $("#hearingtype").focus();
+                    return;
+                } else {
+                    $("#hearingtype").siblings().removeClass("b");
+                }
+
+                if ($("#firstname").val() == '') {
+                    $("#firstname").siblings().addClass("b");
+                    $("#firstname").focus();
+                    return;
+                } else {
+                    $("#firstname").siblings().removeClass("b");
+                }
+
+                if ($("#lastname").val() == '') {
+                    $("#lastname").siblings().addClass("b");
+                    $("#lastname").focus();
+                    return;
+                } else {
+                    $("#lastname").siblings().removeClass("b");
+                }                
+
+                if ($("#hearingdate").val() == '') {
+                    $("#hearingdate").siblings().addClass("b");
+                    $("#hearingdate").focus();
+                    return;
+                } else {
+                    $("#hearingdate").siblings().removeClass("b");
+                }
+
+                if ($("#hearingtime").val() == '') {
+                    $("#hearingtime").siblings().addClass("b");
+                    $("#hearingtime").focus();
+                    return;
+                } else {
+                    $("#hearingtime").siblings().removeClass("b");
+                }
+
                 var params = {
                     courtcaseno: $("#courtcaseno").val(),
                     courttype: $("#courttype").val(),

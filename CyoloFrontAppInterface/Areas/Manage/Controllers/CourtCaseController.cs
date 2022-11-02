@@ -27,7 +27,14 @@ namespace CyoloFrontAppInterface.Areas.Manage.Controllers
             {
                 return RedirectToAction("Login", "User", new { area = "" });
             }
+
+
             BackendServerAPI ls = new BackendServerAPI();
+
+            ViewBag.CourtTypes = await ls.GetAllCourtTypes();
+            ViewBag.CourtLocations = await ls.GetAllCourtLocations();
+            ViewBag.ChamberIds = await ls.GetAllChamberIDs();
+
             try
             {
                 ViewBag.Model = await ls.GetCourtCaseByEmailAndDate(email, date);
@@ -41,11 +48,7 @@ namespace CyoloFrontAppInterface.Areas.Manage.Controllers
 
             ViewData["Message"] = HttpContext.Session.GetString("userinfo");
             ViewBag.Today = date;
-            ViewBag.Email = email;
-
-            ViewBag.CourtTypes = await ls.GetAllCourtTypes();
-            ViewBag.CourtLocations = await ls.GetAllCourtLocations();
-            ViewBag.ChamberIds = await ls.GetAllChamberIDs();
+            ViewBag.Email = email;            
 
             return View();
         }
@@ -62,7 +65,13 @@ namespace CyoloFrontAppInterface.Areas.Manage.Controllers
             {
                 date = DateTime.Now.ToString("yyyy-MM-dd");
             }
+
             BackendServerAPI ls = new BackendServerAPI();
+
+            ViewBag.CourtTypes = await ls.GetAllCourtTypes();
+            ViewBag.CourtLocations = await ls.GetAllCourtLocations();
+            ViewBag.ChamberIds = await ls.GetAllChamberIDs();
+
             try
             {
                 ViewBag.Model = await ls.GetCourtCaseByNameAndDate(name, date);
