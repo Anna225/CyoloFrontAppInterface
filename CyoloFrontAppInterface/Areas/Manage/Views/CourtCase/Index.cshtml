@@ -198,11 +198,11 @@
             $("#name").siblings().removeClass("b");
         }
         if ($("#date").val() == '') {
-            $("#date").siblings().addClass("b");
+            $("#date").parent().siblings("p.error").addClass("b");
             $("#date").focus();
             return;
         } else {
-            $("#date").siblings().removeClass("b");
+            $("#date").parent().siblings("p.error").removeClass("b");
         }
         $("#searchform").submit();
     }
@@ -217,11 +217,11 @@
                 $("#name").siblings().removeClass("b");
             }
             if ($("#date").val() == '') {
-                $("#date").siblings().addClass("b");
+                $("#date").parent().siblings("p.error").addClass("b");
                 $("#date").focus();
                 return;
             } else {
-                $("#date").siblings().removeClass("b");
+                $("#date").parent().siblings("p.error").removeClass("b");
             }
             $("#searchform").submit();
         }
