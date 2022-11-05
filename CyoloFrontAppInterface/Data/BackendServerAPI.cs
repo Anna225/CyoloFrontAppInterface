@@ -50,6 +50,13 @@ namespace CyoloFrontAppInterface.Data
             var response = await _client.GetAsync(request);
             return JsonConvert.DeserializeObject<dynamic>(response.Content);
         }
+        public async Task<dynamic> GetAgendasByEmail(string email)
+        {
+            var request = new RestRequest($"/api/Custom/GetAgendasByEmail/{email}");
+            request.AddHeader("ocp-apim-subscription-key", "d23d9c7c11da4b228417e567c85fa80c");
+            var response = await _client.GetAsync(request);
+            return JsonConvert.DeserializeObject<dynamic>(response.Content);
+        }
         public async Task<dynamic> Login(UserDto userdto)
         {
             var request = new RestRequest($"/api/Auth/Login");

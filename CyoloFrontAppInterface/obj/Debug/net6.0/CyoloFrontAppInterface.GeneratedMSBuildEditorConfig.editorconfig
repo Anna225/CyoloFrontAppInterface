@@ -15,6 +15,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\CyoloFrontAppInterface\CyoloFrontAppInterface
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/CyoloFrontAppInterface/CyoloFrontAppInterface/Areas/Manage/Views/CourtCase/AgendasByEmail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXENvdXJ0Q2FzZVxBZ2VuZGFzQnlFbWFpbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/CyoloFrontAppInterface/CyoloFrontAppInterface/Areas/Manage/Views/CourtCase/getbycourtcase.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXENvdXJ0Q2FzZVxnZXRieWNvdXJ0Y2FzZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

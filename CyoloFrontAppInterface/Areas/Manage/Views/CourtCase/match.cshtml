@@ -2,31 +2,44 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
-    ViewData["Title"] = "Welcome " + @ViewData["Message"] + "!";
+    var fullName = @ViewBag.Lawyer.name + " " + @ViewBag.Lawyer.sureName;
+    ViewData["Title"] = "Welcome " + fullName + "!";
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewData["Today"] = DateTime.Now.ToString("yyyy-MM-dd");
     ViewData["CurTime"] = DateTime.Now.ToString("hh:mm");
 }
 
 <h1 class="thumb-text">@ViewData["Title"]</h1>
-
 @using (Html.BeginForm("GetByCourtCase", "CourtCase", FormMethod.Post, new { id = "searchform" }))
 {
+    List<SelectListItem> ddlCTTP = new List<SelectListItem>();
+    if(ViewBag.CourtTypes.Count > 0){
+        foreach (var item in ViewBag.CourtTypes)
+        {
+            SelectListItem subitem = new SelectListItem
+            {
+                Text = item.ToString(),
+                Value = item.ToString(),
+                Selected = (ViewBag.CourtCase.courtType.ToString() == item.ToString())?true:false
+            };
+            ddlCTTP.Add(subitem);
+        }
+    }
     <div class="row">
         <div class="form-group col-md-6">
             <label for="courttype">CourtType:</label>
             @Html.DropDownList("courttype",
-                new SelectList(ViewBag.CourtTypes),
-                "",
+                new SelectList(ddlCTTP, nameof(SelectListItem.Value), nameof(SelectListItem.Text), nameof(SelectListItem.Selected)),
+                ViewBag.CourtCase.courtType,
                 new { @class = "form-control", @id = "courttype" })
             <p class="error">Please select CourtType.</p>
         </div>
         <div class="form-group col-md-6">
             <label for="courtlocation">CourtLocation:</label>
             @Html.DropDownList("courtlocation",
-            new SelectList(ViewBag.CourtLocations),
-                "",
-            new { @class = "form-control", @id = "courtlocation" })
+                new SelectList(ViewBag.CourtLocations),
+                ViewBag.CourtCase.courtLocation,
+                new { @class = "form-control", @id = "courtlocation" })
             <p class="error">Please select CourtLocation.</p>
         </div>
     </div>
@@ -35,7 +48,7 @@
             <label for="chamberid">ChamberID:</label>
             @Html.DropDownList("chamberid",
                 new SelectList(ViewBag.ChamberIds),
-                "",
+                ViewBag.CourtCase.chamberId,
                 new { @class = "form-control", @id = "chamberid" })
             <p class="error">Please select ChamberID.</p>
         </div>
@@ -124,6 +137,9 @@
 <script>
     function submitForm() {
 
+        alert($("#courttype").text());
+        alert($("#courttype").val()); return;
+
         if ($("#courttype").val() == '') {
             $("#courttype").siblings().addClass("b");
             $("#courttype").focus();
@@ -140,13 +156,13 @@
             $("#courtlocation").siblings().removeClass("b");
         }
 
-        if ($("#chamberid").val() == '') {
-            $("#chamberid").siblings().addClass("b");
-            $("#chamberid").focus();
-            return;
-        } else {
-            $("#chamberid").siblings().removeClass("b");
-        }
+        //if ($("#chamberid").val() == '') {
+        //    $("#chamberid").siblings().addClass("b");
+        //    $("#chamberid").focus();
+        //    return;
+        //} else {
+        //    $("#chamberid").siblings().removeClass("b");
+        //}
 
         if ($("#hearingdate").val() == '') {
             $("#hearingdate").parent().siblings("p.error").addClass("b");

@@ -71,11 +71,11 @@ nav a {
     margin: 16px;
 }
 
-    .bg-login .col-md-1,
-    .bg-login .col-md-4 {
-        padding-bottom: 15px;
-        padding-top: 15px;
-    }
+.bg-login .col-md-1,
+.bg-login .col-md-4 {
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
 
 .bg-image {
     padding: 15px;
@@ -142,4 +142,8 @@ p.error {
 
 p.b {
     display: block;
+}
+
+td > a.btn {
+    width: 100px;
 }
