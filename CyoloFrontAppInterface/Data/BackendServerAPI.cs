@@ -73,12 +73,12 @@ namespace CyoloFrontAppInterface.Data
             request.AddHeader("Accept", "application/json");
             SearchDto searchdto = new SearchDto
             {
-                CourtCaseNo = collection["courtcaseno"],
-                CourtType = collection["courttype"],
-                CourtLocation = collection["courtlocation"],
-                ChamberID = collection["chamberid"],
-                HearingDate = collection["hearingdate"],
-                HearingTime = collection["hearingtime"]
+                CourtCaseNo = collection["courtcaseno"].ToString(),
+                CourtType = collection["courttype"].ToString(),
+                CourtLocation = collection["courtlocation"].ToString(),
+                ChamberID = collection["chamberid"].ToString(),
+                HearingDate = collection["hearingdate"].ToString(),
+                HearingTime = collection["hearingtime"].ToString()
             };
             request.AddJsonBody(searchdto);
             var response = await _client.PostAsync(request);
