@@ -74,6 +74,71 @@
         }
     </tbody>
 </table>
+@{
+    // CourtType Dropdownlist Init
+    List<SelectListItem> ddlCTTP = new List<SelectListItem>();
+    if (ViewBag.CourtTypes.Count > 0)
+    {
+        ddlCTTP.Add(new SelectListItem
+                {
+                    Text = "",
+                    Value = "",
+                    Selected = true
+                });
+        foreach (var item in ViewBag.CourtTypes)
+        {
+            SelectListItem subitem = new SelectListItem
+                    {
+                        Text = item.ToString(),
+                        Value = item.ToString(),
+                        Selected = false
+                    };
+            ddlCTTP.Add(subitem);
+        }
+    }
+    // CourtLocation Dropdownlist Init
+    List<SelectListItem> ddlCTLC = new List<SelectListItem>();
+    if (ViewBag.CourtLocations.Count > 0)
+    {
+        ddlCTLC.Add(new SelectListItem
+                {
+                    Text = "",
+                    Value = "",
+                    Selected = true
+                });
+        foreach (var item in ViewBag.CourtLocations)
+        {
+            SelectListItem subitem = new SelectListItem
+                    {
+                        Text = item.ToString(),
+                        Value = item.ToString(),
+                        Selected = false
+                    };
+            ddlCTLC.Add(subitem);
+        }
+    }
+    // CahmberID Dropdownlist Init
+    List<SelectListItem> ddlCTCI = new List<SelectListItem>();
+    if (ViewBag.ChamberIds.Count > 0)
+    {
+        ddlCTCI.Add(new SelectListItem
+                {
+                    Text = "",
+                    Value = "",
+                    Selected = true
+                });
+        foreach (var item in ViewBag.ChamberIds)
+        {
+            SelectListItem subitem = new SelectListItem
+                    {
+                        Text = item.ToString(),
+                        Value = item.ToString(),
+                        Selected = false
+                    };
+            ddlCTCI.Add(subitem);
+        }
+    }
+}
 <!-- The Modal -->
 <div class="modal" id="myModal">
     <div class="modal-dialog modal-lg">
@@ -109,8 +174,7 @@
                     </div>
                     <div class="col-md-10">
                         @Html.DropDownList("courttype",
-                            new SelectList(ViewBag.CourtTypes),
-                            "",
+                            ddlCTTP,
                             new { @class = "form-control", @id = "courttype" })
                         <p class="error">Please select court type.</p>
                     </div>
@@ -121,8 +185,7 @@
                     </div>
                     <div class="col-md-10">
                         @Html.DropDownList("courtlocation",
-                            new SelectList(ViewBag.CourtLocations),
-                            "",
+                            ddlCTLC,
                             new { @class = "form-control", @id = "courtlocation" })
                         <p class="error">Please select court location.</p>
                     </div>
@@ -133,8 +196,7 @@
                     </div>
                     <div class="col-md-4">
                         @Html.DropDownList("chamberid",
-                            new SelectList(ViewBag.ChamberIds),
-                            "",
+                            ddlCTCI,
                             new { @class = "form-control", @id = "chamberid" })
                         <p class="error">Please select chamberid.</p>
                     </div>
