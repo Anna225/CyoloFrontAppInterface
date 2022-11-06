@@ -128,6 +128,7 @@ namespace CyoloFrontAppInterface.Areas.Manage.Controllers
             ViewBag.Lawyer = await ls.GetLawyerByEmail(HttpContext.Session.GetString("userinfo"));
             ViewBag.AvailableModel = await ls.GetAvailableLawyersByCourtCaseNo(courtCaseNo);
             ViewBag.No = courtCaseNo;
+            ViewData["Message"] = HttpContext.Session.GetString("userinfo");
 
             return View();
         }
