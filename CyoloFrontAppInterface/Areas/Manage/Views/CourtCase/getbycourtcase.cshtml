@@ -11,20 +11,81 @@
 
 @using (Html.BeginForm("GetByCourtCase", "CourtCase", FormMethod.Post, new { id = "searchform" }))
 {
+    // CourtType Dropdownlist Init
+    List<SelectListItem> ddlCTTP = new List<SelectListItem>();
+    if (ViewBag.CourtTypes.Count > 0)
+    {
+        ddlCTTP.Add(new SelectListItem
+                    {
+                        Text = "",
+                        Value = "",
+                        Selected = (ViewBag.CourtCase.CourtType.ToString() == "") ? true : false
+                    });
+        foreach (var item in ViewBag.CourtTypes)
+        {
+            SelectListItem subitem = new SelectListItem
+                        {
+                            Text = item.ToString(),
+                            Value = item.ToString(),
+                            Selected = (ViewBag.CourtCase.CourtType.ToString() == item.ToString()) ? true : false
+                        };
+            ddlCTTP.Add(subitem);
+        }
+    }
+    // CourtLocation Dropdownlist Init
+    List<SelectListItem> ddlCTLC = new List<SelectListItem>();
+    if (ViewBag.CourtLocations.Count > 0)
+    {
+        ddlCTLC.Add(new SelectListItem
+                    {
+                        Text = "",
+                        Value = "",
+                        Selected = (ViewBag.CourtCase.CourtLocation.ToString() == "") ? true : false
+                    });
+        foreach (var item in ViewBag.CourtLocations)
+        {
+            SelectListItem subitem = new SelectListItem
+                        {
+                            Text = item.ToString(),
+                            Value = item.ToString(),
+                            Selected = (ViewBag.CourtCase.CourtLocation.ToString() == item.ToString()) ? true : false
+                        };
+            ddlCTLC.Add(subitem);
+        }
+    }
+    // CahmberID Dropdownlist Init
+    List<SelectListItem> ddlCTCI = new List<SelectListItem>();
+    if (ViewBag.ChamberIds.Count > 0)
+    {
+        ddlCTCI.Add(new SelectListItem
+                    {
+                        Text = "",
+                        Value = "",
+                        Selected = (ViewBag.CourtCase.ChamberID.ToString() == "") ? true : false
+                    });
+        foreach (var item in ViewBag.ChamberIds)
+        {
+            SelectListItem subitem = new SelectListItem
+                        {
+                            Text = item.ToString(),
+                            Value = item.ToString(),
+                            Selected = (ViewBag.CourtCase.ChamberID.ToString() == item.ToString()) ? true : false
+                        };
+            ddlCTCI.Add(subitem);
+        }
+    }
     <div class="row">
         <div class="form-group col-md-6">
             <label for="courttype">CourtType:</label>
             @Html.DropDownList("courttype",
-                new SelectList(ViewBag.CourtTypes),
-                ViewBag.CourtCase.CourtType,
+                ddlCTTP,
                 new { @class = "form-control", @id = "courttype" })
             <p class="error">Please select CourtType.</p>
         </div>
         <div class="form-group col-md-6">
             <label for="courtlocation">CourtLocation:</label>
             @Html.DropDownList("courtlocation",
-                new SelectList(ViewBag.CourtLocations),
-                ViewBag.CourtCase.CourtLocation,
+                ddlCTLC,
                 new { @class = "form-control", @id = "courtlocation" })
             <p class="error">Please select CourtLocation.</p>
         </div>
@@ -33,8 +94,7 @@
         <div class="form-group col-md-4">
             <label for="chamberid">ChamberID:</label>
             @Html.DropDownList("chamberid",
-                new SelectList(ViewBag.ChamberIds),
-                ViewBag.CourtCase.ChamberID,
+                ddlCTCI,
                 new { @class = "form-control", @id = "chamberid" })
             <p class="error">Please select ChamberID.</p>
         </div>

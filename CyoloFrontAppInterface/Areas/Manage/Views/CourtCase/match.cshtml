@@ -12,6 +12,7 @@
 <h1 class="thumb-text">@ViewData["Title"]</h1>
 @using (Html.BeginForm("GetByCourtCase", "CourtCase", FormMethod.Post, new { id = "searchform" }))
 {
+    // CourtType Dropdownlist Init
     List<SelectListItem> ddlCTTP = new List<SelectListItem>();
     if(ViewBag.CourtTypes.Count > 0){
         ddlCTTP.Add(new SelectListItem
@@ -31,6 +32,7 @@
             ddlCTTP.Add(subitem);
         }
     }
+    // CourtLocation Dropdownlist Init
     List<SelectListItem> ddlCTLC = new List<SelectListItem>();
     if (ViewBag.CourtLocations.Count > 0)
     {
@@ -51,6 +53,7 @@
             ddlCTLC.Add(subitem);
         }
     }
+    // CahmberID Dropdownlist Init
     List<SelectListItem> ddlCTCI = new List<SelectListItem>();
     if (ViewBag.ChamberIds.Count > 0)
     {
