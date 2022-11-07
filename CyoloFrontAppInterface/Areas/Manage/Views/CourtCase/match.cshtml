@@ -76,11 +76,11 @@
     }
     <div class="row">
         <div class="form-group col-md-6">
-            <label for="courttype">CourtType:</label>
+            <label for="courttype">Jurisdiction:</label>
             @Html.DropDownList("courttype",
                 ddlCTTP,
                 new { @class = "form-control", @id = "courttype" })
-            <p class="error">Please select CourtType.</p>
+            <p class="error">Please select Jurisdiction.</p>
         </div>
         <div class="form-group col-md-6">
             <label for="courtlocation">CourtLocation:</label>
@@ -121,7 +121,7 @@
 <table class="table table-striped table-bordered">
     <thead>
         <tr>
-            <th>Court Type</th>
+            <th>Jurisdiction</th>
             <th>Court Location</th>
             <th>Chamber ID</th>
             <th>Hearing Date</th>

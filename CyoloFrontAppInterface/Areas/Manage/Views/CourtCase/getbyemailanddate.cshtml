@@ -31,8 +31,8 @@
         <tr>
             <th>No</th>
             <th>CourtCaseNo</th>
-            <th>CourtType</th>
-            <th>CourtLocation</th>
+            <th>Jurisdiction</th>
+            @*<th>CourtLocation</th>*@
             <th>ChamberID</th>
             <th>HearingDate</th>
             <th>HearingTime</th>
@@ -58,7 +58,7 @@
                     <td>@(i + 1)</td>
                     <td>@item.courtcase.courtCaseNo</td>
                     <td>@item.courtcase.courtType</td>
-                    <td>@item.courtcase.courtLocation</td>
+                    @*<td>@item.courtcase.courtLocation</td>*@
                     <td>@item.courtcase.chamberID</td>
                     <td>@item.courtcase.hearingDate</td>
                     <td>@item.courtcase.hearingTime</td>
@@ -176,13 +176,13 @@
                 </div>
                 <div class="row form-group">
                     <div class="col-md-2">
-                        <label>Court Type</label>
+                        <label>Jurisdiction</label>
                     </div>
                     <div class="col-md-10">
                         @Html.DropDownList("courttype",
                             ddlCTTP,
                             new { @class = "form-control", @id = "courttype" })
-                        <p class="error">Please select court type.</p>
+                        <p class="error">Please select jurisdiction.</p>
                     </div>
                 </div>
                 <div class="row form-group">
