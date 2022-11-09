@@ -54,10 +54,15 @@
         {
             @foreach (var item in ViewBag.Model)
             {
+                string str = item.courtcase.hearingGeneral.ToString().Trim();
+                if (str.Substring(str.Length - 1) == ",")
+                {
+                    str = str.Substring(0, str.Length - 1);
+                }
                 <tr>
                     <td>@(i + 1)</td>
                     <td>@item.courtcase.courtCaseNo</td>
-                    <td>@item.courtcase.hearingGeneral</td>
+                    <td>@str</td>
                     @*<td>@item.courtcase.courtLocation</td>*@
                     <td>@item.courtcase.chamberID</td>
                     <td>@item.courtcase.hearingDate</td>
@@ -71,8 +76,7 @@
                         @Html.ActionLink("Request", "Match", "CourtCase",
                             new { courtCaseNo =  courtcaseid },
                             new { @class = "btn btn-warning"}
-                        )
-                        
+                        )                        
                     </td>
                 </tr>
                 i++;
