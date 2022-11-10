@@ -21,7 +21,7 @@
         <div class="form-group col-md-5">
             <hr style="line-height: 24px; visibility: hidden; margin-bottom: 14px;" />
             <a class="btn btn-success" onclick="submitForm()">Search</a>
-            <button type="button" class="btn btn-warning align-right" data-toggle="modal" data-target="#myModal">Upload Agendas</button>
+            <button type="button" class="btn btn-warning align-right" data-toggle="modal" data-target="#myModal">Upload Agenda</button>
         </div>
     </div>
 }
@@ -68,7 +68,7 @@
                     <td>@item.courtcase.hearingDate</td>
                     <td>@item.courtcase.hearingTime</td>
                     <td>@item.courtcase.hearingType</td>
-                    <td>
+                    <td style="min-width: 230px;">
                         @{
                             string courtcaseid = Convert.ToString(item.courtcase.courtCaseNo);
                         }
