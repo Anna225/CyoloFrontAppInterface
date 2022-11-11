@@ -163,7 +163,6 @@ namespace CyoloFrontAppInterface.Areas.Manage.Controllers
             ViewBag.Lawyer = await ls.GetLawyerByEmail(HttpContext.Session.GetString("userinfo"));
 
             SearchDto retval = new SearchDto {
-                CourtType = collection["courttype"],
                 CourtCaseNo = collection["courtcaseno"],
                 HearingGeneral = collection["jurisdiction"],
                 ChamberID = collection["chamberid"],

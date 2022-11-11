@@ -20,7 +20,7 @@
                     {
                         Text = "",
                         Value = "",
-                        Selected = (ViewBag.CourtCase.hearingGeneral.ToString() == "") ? true : false
+                        Selected = (ViewBag.CourtCase.HearingGeneral.ToString() == "") ? true : false
                     });
         foreach (var item in ViewBag.Jurisdictions)
         {
@@ -28,7 +28,7 @@
                         {
                             Text = item.ToString(),
                             Value = item.ToString(),
-                            Selected = (ViewBag.CourtCase.hearingGeneral.ToString() == item.ToString()) ? true : false
+                            Selected = (ViewBag.CourtCase.HearingGeneral.ToString() == item.ToString()) ? true : false
                         };
             ddlCTJD.Add(subitem);
         }
