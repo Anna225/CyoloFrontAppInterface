@@ -32,7 +32,6 @@
             <th>No</th>
             <th>CourtCaseNo</th>
             <th>Jurisdiction</th>
-            @*<th>CourtLocation</th>*@
             <th>ChamberID</th>
             <th>HearingDate</th>
             <th>HearingTime</th>
@@ -46,9 +45,7 @@
         }
         @if (ViewBag.Model == null || ViewBag.Model.Count == 0)
         {
-            <tr>
-                <td colspan="9" class="text-center">No matching data found.</td>
-            </tr>
+
         }
         else
         {
@@ -63,7 +60,6 @@
                     <td>@(i + 1)</td>
                     <td>@item.courtcase.courtCaseNo</td>
                     <td>@str</td>
-                    @*<td>@item.courtcase.courtLocation</td>*@
                     <td>@item.courtcase.chamberID</td>
                     <td>@item.courtcase.hearingDate</td>
                     <td>@item.courtcase.hearingTime</td>

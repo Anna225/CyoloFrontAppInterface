@@ -30,9 +30,7 @@
     <tbody>
         @if (ViewBag.Model == null || ViewBag.Model.Count == 0)
         {
-            <tr>
-                <td colspan="9" class="text-center">No matching data found.</td>
-            </tr>
+            
         }
         else
         {
@@ -41,7 +39,6 @@
                 <tr>
                     <td>@item.agenda.courtCaseNo</td>
                     <td>@item.agenda.jurisdiction</td>
-                    @*<td>@item.agenda.courtLocation</td>*@
                     <td>@item.agenda.chamberID</td>
                     <td>@item.agenda.hearingDate</td>
                     <td>@item.agenda.hearingTime</td>

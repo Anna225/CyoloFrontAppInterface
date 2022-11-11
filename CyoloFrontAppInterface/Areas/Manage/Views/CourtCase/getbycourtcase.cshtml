@@ -129,9 +129,7 @@
         }
         @if (ViewBag.AvailableModel == null || ViewBag.AvailableModel.Count == 0)
         {
-            <tr>
-                <td colspan="8" class="text-center">No matching data found.</td>
-            </tr>
+
         }
         else
         {
@@ -165,13 +163,6 @@
             $("#jurisdiction").siblings().removeClass("b");
         }
 
-        //if ($("#chamberid").val() == '') {
-        //    $("#chamberid").siblings().addClass("b");
-        //    $("#chamberid").focus();
-        //    return;
-        //} else {
-        //    $("#chamberid").siblings().removeClass("b");
-        //}
 
         if ($("#hearingdate").val() == '') {
             $("#hearingdate").parent().siblings("p.error").addClass("b");

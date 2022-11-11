@@ -55,6 +55,7 @@ $(function () {
     });
 
     $(".btn-upload").click(function (e) {
+
         e.preventDefault();
 
         if ($("#courtcaseno").val() == '') {
