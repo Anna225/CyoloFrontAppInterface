@@ -73,20 +73,12 @@ $(function () {
             $("#uploaderemail").siblings().removeClass("b");
         }
 
-        if ($("#courttype").val() == '') {
-            $("#courttype").siblings().addClass("b");
-            $("#courttype").focus();
+        if ($("#jurisdiction").val() == '') {
+            $("#jurisdiction").siblings().addClass("b");
+            $("#jurisdiction").focus();
             return;
         } else {
-            $("#courttype").siblings().removeClass("b");
-        }
-
-        if ($("#courtlocation").val() == '') {
-            $("#courtlocation").siblings().addClass("b");
-            $("#courtlocation").focus();
-            return;
-        } else {
-            $("#courtlocation").siblings().removeClass("b");
+            $("#jurisdiction").siblings().removeClass("b");
         }
 
         if ($("#chamberid").val() == '') {
@@ -139,8 +131,7 @@ $(function () {
 
         var params = {
             courtcaseno: $("#courtcaseno").val(),
-            courttype: $("#courttype").val(),
-            courtlocation: $("#courtlocation").val(),
+            jurisdiction: $("#jurisdiction").val(),
             uploaderemail: $("#uploaderemail").val(),
             firstname: $("#firstname").val(),
             lastname: $("#lastname").val(),

@@ -3,8 +3,7 @@
     public class AgendaDto
     {
         public string? courtCaseNo { get; set; }
-        public string? courtType { get; set; }
-        public string? courtLocation { get; set; }
+        public string? jurisdiction { get; set; }
         public string? chamberId { get; set; }
         public string? hearingDate { get; set; }
         public string? hearingTime { get; set; }

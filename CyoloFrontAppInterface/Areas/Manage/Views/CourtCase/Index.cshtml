@@ -80,49 +80,8 @@
     </tbody>
 </table>
 @{
-    // CourtType Dropdownlist Init
-    List<SelectListItem> ddlCTTP = new List<SelectListItem>();
-    if (ViewBag.CourtTypes.Count > 0)
-    {
-        ddlCTTP.Add(new SelectListItem
-                {
-                    Text = "",
-                    Value = "",
-                    Selected = true
-                });
-        foreach (var item in ViewBag.CourtTypes)
-        {
-            SelectListItem subitem = new SelectListItem
-                    {
-                        Text = item.ToString(),
-                        Value = item.ToString(),
-                        Selected = false
-                    };
-            ddlCTTP.Add(subitem);
-        }
-    }
-    // CourtLocation Dropdownlist Init
-    List<SelectListItem> ddlCTLC = new List<SelectListItem>();
-    if (ViewBag.CourtLocations.Count > 0)
-    {
-        ddlCTLC.Add(new SelectListItem
-                {
-                    Text = "",
-                    Value = "",
-                    Selected = true
-                });
-        foreach (var item in ViewBag.CourtLocations)
-        {
-            SelectListItem subitem = new SelectListItem
-                    {
-                        Text = item.ToString(),
-                        Value = item.ToString(),
-                        Selected = false
-                    };
-            ddlCTLC.Add(subitem);
-        }
-    }
-    // CahmberID Dropdownlist Init
+    
+    // ChamberID Dropdownlist Init
     List<SelectListItem> ddlCTCI = new List<SelectListItem>();
     if (ViewBag.ChamberIds.Count > 0)
     {
@@ -143,6 +102,28 @@
             ddlCTCI.Add(subitem);
         }
     }
+    // Jurisdictions Dropdownlist Init
+    List<SelectListItem> ddlCTJD = new List<SelectListItem>();
+    if (ViewBag.Jurisdictions.Count > 0)
+    {
+        ddlCTJD.Add(new SelectListItem
+                {
+                    Text = "",
+                    Value = "",
+                    Selected = true
+                });
+        foreach (var item in ViewBag.Jurisdictions)
+        {
+            SelectListItem subitem = new SelectListItem
+                    {
+                        Text = item.ToString(),
+                        Value = item.ToString(),
+                        Selected = false
+                    };
+            ddlCTJD.Add(subitem);
+        }
+    }
+
 }
 <!-- The Modal -->
 <div class="modal" id="myModal">
@@ -175,24 +156,13 @@
                 </div>
                 <div class="row form-group">
                     <div class="col-md-2">
-                        <label>CourtType</label>
+                        <label>Jurisdiction</label>
                     </div>
                     <div class="col-md-10">
-                        @Html.DropDownList("courttype",
-                            ddlCTTP,
-                            new { @class = "form-control", @id = "courttype" })
-                        <p class="error">Please select court type.</p>
-                    </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col-md-2">
-                        <label>CourtLocation</label>
-                    </div>
-                    <div class="col-md-10">
-                        @Html.DropDownList("courtlocation",
-                            ddlCTLC,
-                            new { @class = "form-control", @id = "courtlocation" })
-                        <p class="error">Please select court location.</p>
+                        @Html.DropDownList("jurisdiction",
+                            ddlCTJD,
+                            new { @class = "form-control", @id = "jurisdiction" })
+                        <p class="error">Please select jurisdiction.</p>
                     </div>
                 </div>
                 <div class="row form-group">

@@ -30,9 +30,8 @@ namespace CyoloFrontAppInterface.Areas.Manage.Controllers
             }
 
             BackendServerAPI ls = new BackendServerAPI();
-            ViewBag.CourtTypes = await ls.GetAllCourtTypes();
-            ViewBag.CourtLocations = await ls.GetAllCourtLocations();
             ViewBag.ChamberIds = await ls.GetAllChamberIDs();
+            ViewBag.Jurisdictions = await ls.GetAllJurisdictions();
 
             try
             {
@@ -66,8 +65,7 @@ namespace CyoloFrontAppInterface.Areas.Manage.Controllers
             }
 
             BackendServerAPI ls = new BackendServerAPI();
-            ViewBag.CourtTypes = await ls.GetAllCourtTypes();
-            ViewBag.CourtLocations = await ls.GetAllCourtLocations();
+            ViewBag.Jurisdictions = await ls.GetAllJurisdictions();
             ViewBag.ChamberIds = await ls.GetAllChamberIDs();
             ViewBag.Lawyer = await ls.GetLawyerByEmail(HttpContext.Session.GetString("userinfo"));
 
@@ -120,8 +118,7 @@ namespace CyoloFrontAppInterface.Areas.Manage.Controllers
             }
 
             BackendServerAPI ls = new BackendServerAPI();
-            ViewBag.CourtTypes = await ls.GetAllCourtTypes();
-            ViewBag.CourtLocations = await ls.GetAllCourtLocations();
+            ViewBag.Jurisdictions = await ls.GetAllJurisdictions();
             ViewBag.ChamberIds = await ls.GetAllChamberIDs();
             ViewBag.Model = await ls.GetLawyersByCourtcaseno(courtCaseNo);
             ViewBag.CourtCase = await ls.GetCourtCaseByNo(courtCaseNo);
@@ -161,15 +158,14 @@ namespace CyoloFrontAppInterface.Areas.Manage.Controllers
             }
 
             BackendServerAPI ls = new BackendServerAPI();
-            ViewBag.CourtTypes = await ls.GetAllCourtTypes();
-            ViewBag.CourtLocations = await ls.GetAllCourtLocations();
+            ViewBag.Jurisdictions = await ls.GetAllJurisdictions();
             ViewBag.ChamberIds = await ls.GetAllChamberIDs(); 
             ViewBag.Lawyer = await ls.GetLawyerByEmail(HttpContext.Session.GetString("userinfo"));
 
             SearchDto retval = new SearchDto {
                 CourtType = collection["courttype"],
                 CourtCaseNo = collection["courtcaseno"],
-                CourtLocation = collection["courtlocation"],
+                HearingGeneral = collection["jurisdiction"],
                 ChamberID = collection["chamberid"],
                 HearingDate = collection["hearingdate"],
                 HearingTime = collection["hearingtime"]
@@ -252,12 +248,4 @@ namespace CyoloFrontAppInterface.Areas.Manage.Controllers
         }
     }
 
-    public class AjaxRequest
-    {
-        public string caseno
-        {
-            get;
-            set;
-        }
-    }
 }

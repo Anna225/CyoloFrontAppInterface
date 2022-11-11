@@ -11,46 +11,26 @@
 
 @using (Html.BeginForm("GetByCourtCase", "CourtCase", FormMethod.Post, new { id = "searchform" }))
 {
-    // CourtType Dropdownlist Init
-    List<SelectListItem> ddlCTTP = new List<SelectListItem>();
-    if (ViewBag.CourtTypes.Count > 0)
+    
+    // Jurisdiction Dropdownlist Init
+    List<SelectListItem> ddlCTJD = new List<SelectListItem>();
+    if (ViewBag.Jurisdictions.Count > 0)
     {
-        ddlCTTP.Add(new SelectListItem
+        ddlCTJD.Add(new SelectListItem
                     {
                         Text = "",
                         Value = "",
-                        Selected = (ViewBag.CourtCase.CourtType.ToString() == "") ? true : false
+                        Selected = (ViewBag.CourtCase.hearingGeneral.ToString() == "") ? true : false
                     });
-        foreach (var item in ViewBag.CourtTypes)
+        foreach (var item in ViewBag.Jurisdictions)
         {
             SelectListItem subitem = new SelectListItem
                         {
                             Text = item.ToString(),
                             Value = item.ToString(),
-                            Selected = (ViewBag.CourtCase.CourtType.ToString() == item.ToString()) ? true : false
+                            Selected = (ViewBag.CourtCase.hearingGeneral.ToString() == item.ToString()) ? true : false
                         };
-            ddlCTTP.Add(subitem);
-        }
-    }
-    // CourtLocation Dropdownlist Init
-    List<SelectListItem> ddlCTLC = new List<SelectListItem>();
-    if (ViewBag.CourtLocations.Count > 0)
-    {
-        ddlCTLC.Add(new SelectListItem
-                    {
-                        Text = "",
-                        Value = "",
-                        Selected = (ViewBag.CourtCase.CourtLocation.ToString() == "") ? true : false
-                    });
-        foreach (var item in ViewBag.CourtLocations)
-        {
-            SelectListItem subitem = new SelectListItem
-                        {
-                            Text = item.ToString(),
-                            Value = item.ToString(),
-                            Selected = (ViewBag.CourtCase.CourtLocation.ToString() == item.ToString()) ? true : false
-                        };
-            ddlCTLC.Add(subitem);
+            ddlCTJD.Add(subitem);
         }
     }
     // CahmberID Dropdownlist Init
@@ -75,19 +55,12 @@
         }
     }
     <div class="row">
-        <div class="form-group col-md-6">
-            <label for="courttype">CourtType:</label>
+        <div class="form-group col-md-12">
+            <label for="jurisdiction">Jurisdiction:</label>
             @Html.DropDownList("courttype",
-                ddlCTTP,
-                new { @class = "form-control", @id = "courttype" })
-            <p class="error">Please select court type.</p>
-        </div>
-        <div class="form-group col-md-6">
-            <label for="courtlocation">CourtLocation:</label>
-            @Html.DropDownList("courtlocation",
-                ddlCTLC,
-                new { @class = "form-control", @id = "courtlocation" })
-            <p class="error">Please select CourtLocation.</p>
+                ddlCTJD,
+                new { @class = "form-control", @id = "jurisdiction" })
+            <p class="error">Please select jurisdiction.</p>
         </div>
     </div>
     <div class="row">
@@ -184,20 +157,12 @@
 <script>
     function submitForm() {
 
-        if ($("#courttype").val() == '') {
-            $("#courttype").siblings().addClass("b");
-            $("#courttype").focus();
+        if ($("#jurisdiction").val() == '') {
+            $("#jurisdiction").siblings().addClass("b");
+            $("#jurisdiction").focus();
             return;
         } else {
-            $("#courttype").siblings().removeClass("b");
-        }
-
-        if ($("#courtlocation").val() == '') {
-            $("#courtlocation").siblings().addClass("b");
-            $("#courtlocation").focus();
-            return;
-        } else {
-            $("#courtlocation").siblings().removeClass("b");
+            $("#jurisdiction").siblings().removeClass("b");
         }
 
         //if ($("#chamberid").val() == '') {

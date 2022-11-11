@@ -14,8 +14,7 @@ namespace CyoloFrontAppInterface.Controllers
         // POST: AgendaController/Create
         public async Task<JsonResult?> Create(
             string courtcaseno,
-            string courttype,
-            string courtlocation,
+            string jurisdiction,
             string uploaderemail,
             string firstname,
             string lastname,
@@ -28,8 +27,7 @@ namespace CyoloFrontAppInterface.Controllers
             AgendaDto agenda = new AgendaDto
             {
                 courtCaseNo = courtcaseno,
-                courtType = courttype,
-                courtLocation = courtlocation,
+                jurisdiction = jurisdiction,
                 hearingDate = hearingdate,
                 hearingTime = hearingtime,
                 hearingType = hearingtype,

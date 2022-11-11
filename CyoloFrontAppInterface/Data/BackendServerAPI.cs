@@ -10,9 +10,11 @@ namespace CyoloFrontAppInterface.Data
     public class BackendServerAPI
     {
         private RestClient _client;
+        private string _ocp_apim_subscription_key;
         public BackendServerAPI()
         {
             _client = new RestClient("https://cyoloapigateway.azure-api.net");
+            _ocp_apim_subscription_key = "d23d9c7c11da4b228417e567c85fa80c";
         }
 
         public void Dispose()
@@ -23,7 +25,7 @@ namespace CyoloFrontAppInterface.Data
         public async Task<dynamic> UploadAgenda(AgendaDto agenda)
         {
             var request = new RestRequest($"/api/Agenda");
-            request.AddHeader("ocp-apim-subscription-key", "d23d9c7c11da4b228417e567c85fa80c");
+            request.AddHeader("ocp-apim-subscription-key", _ocp_apim_subscription_key);
             request.AddHeader("Accept", "application/json");
             request.AddJsonBody(agenda);
             var response = await _client.PostAsync(request);
@@ -32,35 +34,35 @@ namespace CyoloFrontAppInterface.Data
         public async Task<LawyerDto> GetLawyerByEmail(string email)
         {
             var request = new RestRequest($"/api/Custom/GetlawyerByEmail/{email}");
-            request.AddHeader("ocp-apim-subscription-key", "d23d9c7c11da4b228417e567c85fa80c");
+            request.AddHeader("ocp-apim-subscription-key", _ocp_apim_subscription_key);
             var response = await _client.GetAsync(request);
             return JsonConvert.DeserializeObject<LawyerDto>(response.Content);
         }
         public async Task<CourtCaseAgendaDto> GetCourtCaseByNo(string courtCaseNo)
         {
             var request = new RestRequest($"/api/CourtCaseAgendas/GetCourtCaseByNo/{courtCaseNo}");
-            request.AddHeader("ocp-apim-subscription-key", "d23d9c7c11da4b228417e567c85fa80c");
+            request.AddHeader("ocp-apim-subscription-key", _ocp_apim_subscription_key);
             var response = await _client.GetAsync(request);
             return JsonConvert.DeserializeObject<CourtCaseAgendaDto>(response.Content);
         }
         public async Task<dynamic> GetCourtCaseByEmailAndDate(string email, string date)
         {
             var request = new RestRequest($"/api/Custom/CourtCaseByDateAndEmail/{date}/{email}");
-            request.AddHeader("ocp-apim-subscription-key", "d23d9c7c11da4b228417e567c85fa80c");
+            request.AddHeader("ocp-apim-subscription-key", _ocp_apim_subscription_key);
             var response = await _client.GetAsync(request);
             return JsonConvert.DeserializeObject<dynamic>(response.Content);
         }
         public async Task<dynamic> GetAgendasByEmail(string email)
         {
             var request = new RestRequest($"/api/Custom/GetAgendasByEmail/{email}");
-            request.AddHeader("ocp-apim-subscription-key", "d23d9c7c11da4b228417e567c85fa80c");
+            request.AddHeader("ocp-apim-subscription-key", _ocp_apim_subscription_key);
             var response = await _client.GetAsync(request);
             return JsonConvert.DeserializeObject<dynamic>(response.Content);
         }
         public async Task<dynamic> Login(UserDto userdto)
         {
             var request = new RestRequest($"/api/Auth/Login");
-            request.AddHeader("ocp-apim-subscription-key", "d23d9c7c11da4b228417e567c85fa80c");
+            request.AddHeader("ocp-apim-subscription-key", _ocp_apim_subscription_key);
             request.AddHeader("Accept", "application/json");
             request.AddJsonBody(userdto);
             var response = await _client.PostAsync(request);
@@ -69,13 +71,12 @@ namespace CyoloFrontAppInterface.Data
         public async Task<dynamic> GetByCourtCase(IFormCollection collection)
         {
             var request = new RestRequest($"/api/Lawyers/GetByCourtCase");
-            request.AddHeader("ocp-apim-subscription-key", "d23d9c7c11da4b228417e567c85fa80c");
+            request.AddHeader("ocp-apim-subscription-key", _ocp_apim_subscription_key);
             request.AddHeader("Accept", "application/json");
             SearchDto searchdto = new SearchDto
             {
                 CourtCaseNo = collection["courtcaseno"].ToString(),
-                CourtType = collection["courttype"].ToString(),
-                CourtLocation = collection["courtlocation"].ToString(),
+                HearingGeneral = collection["jurisdiction"].ToString(),
                 ChamberID = collection["chamberid"].ToString(),
                 HearingDate = collection["hearingdate"].ToString(),
                 HearingTime = collection["hearingtime"].ToString()
@@ -87,7 +88,7 @@ namespace CyoloFrontAppInterface.Data
         public async Task<dynamic> IsExist(UserDto userdto)
         {
             var request = new RestRequest($"/api/Auth/IsExist");
-            request.AddHeader("ocp-apim-subscription-key", "d23d9c7c11da4b228417e567c85fa80c");
+            request.AddHeader("ocp-apim-subscription-key", _ocp_apim_subscription_key);
             request.AddHeader("Accept", "application/json");
             request.AddJsonBody(userdto);
             var response = await _client.PostAsync(request);
@@ -96,7 +97,7 @@ namespace CyoloFrontAppInterface.Data
         public async Task<dynamic> Register(UserDto userdto)
         {
             var request = new RestRequest($"/api/Auth/Register");
-            request.AddHeader("ocp-apim-subscription-key", "d23d9c7c11da4b228417e567c85fa80c");
+            request.AddHeader("ocp-apim-subscription-key", _ocp_apim_subscription_key);
             request.AddHeader("Accept", "application/json");
             request.AddJsonBody(userdto);
             var response = await _client.PostAsync(request);
@@ -106,7 +107,7 @@ namespace CyoloFrontAppInterface.Data
         public async Task<dynamic> GetCourtCaseByNameAndDate(string lawyername, string date)
         {
             var request = new RestRequest($"/api/Custom/CourtCaseByDateAndName/{date}/{lawyername}");
-            request.AddHeader("ocp-apim-subscription-key", "d23d9c7c11da4b228417e567c85fa80c");
+            request.AddHeader("ocp-apim-subscription-key", _ocp_apim_subscription_key);
             var response = await _client.GetAsync(request);
             return JsonConvert.DeserializeObject<dynamic>(response.Content);
         }
@@ -114,7 +115,7 @@ namespace CyoloFrontAppInterface.Data
         public async Task<dynamic> GetLawyersByCourtcaseno(string courtcaseno)
         {
             var request = new RestRequest($"/api/Custom/LawyersByCourtCaseId/{courtcaseno}");
-            request.AddHeader("ocp-apim-subscription-key", "d23d9c7c11da4b228417e567c85fa80c");
+            request.AddHeader("ocp-apim-subscription-key", _ocp_apim_subscription_key);
             var response = await _client.GetAsync(request);
             return JsonConvert.DeserializeObject<dynamic>(response.Content);
         }
@@ -122,7 +123,7 @@ namespace CyoloFrontAppInterface.Data
         public async Task<dynamic> GetAvailableLawyersByCourtCaseNo(string courtcaseno)
         {
             var request = new RestRequest($"/api/Presentation/GetByCourtCaseNo/{courtcaseno}");
-            request.AddHeader("ocp-apim-subscription-key", "d23d9c7c11da4b228417e567c85fa80c");
+            request.AddHeader("ocp-apim-subscription-key", _ocp_apim_subscription_key);
             var response = await _client.GetAsync(request);
             return JsonConvert.DeserializeObject<dynamic>(response.Content);
         }
@@ -136,7 +137,7 @@ namespace CyoloFrontAppInterface.Data
                 Available = 1
             };
             var request = new RestRequest($"/api/Presentation");
-            request.AddHeader("ocp-apim-subscription-key", "d23d9c7c11da4b228417e567c85fa80c");
+            request.AddHeader("ocp-apim-subscription-key", _ocp_apim_subscription_key);
             request.AddJsonBody(presentationdto);
             var response = await _client.PostAsync(request);
             return JsonConvert.DeserializeObject<dynamic>(response.Content);
@@ -144,7 +145,7 @@ namespace CyoloFrontAppInterface.Data
         public async Task<dynamic> GetlawyerByEmail(string lawyeremail)
         {
             var request = new RestRequest($"/api/Lawyers/ByEmail/{lawyeremail}");
-            request.AddHeader("ocp-apim-subscription-key", "d23d9c7c11da4b228417e567c85fa80c");
+            request.AddHeader("ocp-apim-subscription-key", _ocp_apim_subscription_key);
             var response = await _client.GetAsync(request);
             return JsonConvert.DeserializeObject<dynamic>(response.Content);
         }
@@ -152,7 +153,7 @@ namespace CyoloFrontAppInterface.Data
         public async Task<dynamic> GetAllCourtTypes()
         {
             var request = new RestRequest($"/api/Custom/AllCourtTypes");
-            request.AddHeader("ocp-apim-subscription-key", "d23d9c7c11da4b228417e567c85fa80c");
+            request.AddHeader("ocp-apim-subscription-key", _ocp_apim_subscription_key);
             var response = await _client.GetAsync(request);
             return JsonConvert.DeserializeObject<dynamic>(response.Content);
         }
@@ -160,14 +161,21 @@ namespace CyoloFrontAppInterface.Data
         public async Task<dynamic> GetAllCourtLocations()
         {
             var request = new RestRequest($"/api/Custom/AllCourtLocations");
-            request.AddHeader("ocp-apim-subscription-key", "d23d9c7c11da4b228417e567c85fa80c");
+            request.AddHeader("ocp-apim-subscription-key", _ocp_apim_subscription_key);
             var response = await _client.GetAsync(request);
             return JsonConvert.DeserializeObject<dynamic>(response.Content);
         }
         public async Task<dynamic> GetAllChamberIDs()
         {
             var request = new RestRequest($"/api/Custom/AllChamberIDs");
-            request.AddHeader("ocp-apim-subscription-key", "d23d9c7c11da4b228417e567c85fa80c");
+            request.AddHeader("ocp-apim-subscription-key", _ocp_apim_subscription_key);
+            var response = await _client.GetAsync(request);
+            return JsonConvert.DeserializeObject<dynamic>(response.Content);
+        }
+        public async Task<dynamic> GetAllJurisdictions()
+        {
+            var request = new RestRequest($"/api/Custom/AllJurisdictions");
+            request.AddHeader("ocp-apim-subscription-key", _ocp_apim_subscription_key);
             var response = await _client.GetAsync(request);
             return JsonConvert.DeserializeObject<dynamic>(response.Content);
         }
