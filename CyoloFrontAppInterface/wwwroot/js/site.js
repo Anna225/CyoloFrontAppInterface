@@ -18,9 +18,25 @@ $(function () {
 
     $('#result').DataTable();
 
-    //$('#rsDlg').on('hide', function () {
-    //    window.location.href = "/";
-    //});
+    //$('#myTable').DataTable(
+    //    {
+    //        ajax: {
+    //            url: "Home/GetCourtCaseList",
+    //            type: "POST",
+    //        },
+    //        processing: true,
+    //        serverSide: true,
+    //        filter: true,
+    //        columns: [
+    //            { data: "CourtCaseNo", name: "CourtCaseNo" },
+    //            { data: "HearingGeneral", name: "HearingGeneral" },
+    //            { data: "ChamberID", name: "ChamberID" },
+    //            { data: "HearingDate", name: "HearingDate" },
+    //            { data: "HearingTime", name: "HearingTime" },
+    //            { data: "HearingType", name: "HearingType" },
+    //        ]
+    //    }
+    //);
 
 
     $(".btn-approve").click(function (e) {

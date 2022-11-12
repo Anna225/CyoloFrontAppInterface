@@ -8,6 +8,7 @@ using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Helpers;
 using Xamarin.Essentials;
+using static System.Collections.Specialized.BitVector32;
 
 namespace CyoloFrontAppInterface.Areas.Manage.Controllers
 {
@@ -30,9 +31,21 @@ namespace CyoloFrontAppInterface.Areas.Manage.Controllers
             }
 
             BackendServerAPI ls = new BackendServerAPI();
-            ViewBag.ChamberIds = await ls.GetAllChamberIDs();
-            ViewBag.Jurisdictions = await ls.GetAllJurisdictions();
-
+            var items = await ls.GetAllJurisdictionTypes();
+            List<string> Juridictions = new List<string>();
+            foreach (var item in items)
+            {
+                JuridictionTypeDto dto = new JuridictionTypeDto
+                {
+                    Canton = item.Canton,
+                    Division = item.Division,
+                    TypeJuridiction = item.TypeJuridiction,
+                    TypeJuridictionId = Convert.ToInt32(item.TypeJuridictionId),
+                    DivisionId = item.DivisionId
+                };
+                Juridictions.Add(makeJuridictionItem(dto));
+            }
+            ViewBag.JurisdictionTypes = Juridictions;
             try
             {
                 ViewBag.Model = await ls.GetCourtCaseByEmailAndDate(email, date);
@@ -244,6 +257,26 @@ namespace CyoloFrontAppInterface.Areas.Manage.Controllers
             {
                 return View();
             }
+        }
+
+        private string makeJuridictionItem(JuridictionTypeDto dto)
+        {
+            if(dto.TypeJuridiction == null || dto.TypeJuridiction == "")
+            {
+                return "Rechtscollege";
+            }
+            string[] res = dto.TypeJuridiction.Split(" - ");
+            string lib_juridiction = res[0] + ' ' + dto.Canton;
+            if (dto.DivisionId != "000") { 
+                lib_juridiction = lib_juridiction + " AFDELING " + dto.Division; 
+            }
+            if (dto.TypeJuridictionId == 38) { 
+                lib_juridiction = lib_juridiction.Replace("DIVISION", "SIEGE"); 
+                lib_juridiction = lib_juridiction.Replace("AFDELING", "ZETEL"); 
+            }
+            string section = (res.Length > 1) ? ", " + res[1] : "";
+            lib_juridiction = lib_juridiction + section;
+            return lib_juridiction;
         }
     }
 

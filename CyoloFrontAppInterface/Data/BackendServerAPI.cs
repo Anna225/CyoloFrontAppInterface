@@ -1,8 +1,11 @@
 ﻿#nullable disable
 using CyoloFrontAppInterface.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RestSharp;
+using System.Collections.Generic;
 using System.Linq.Expressions;
 
 namespace CyoloFrontAppInterface.Data
@@ -52,6 +55,14 @@ namespace CyoloFrontAppInterface.Data
             var response = await _client.GetAsync(request);
             return JsonConvert.DeserializeObject<dynamic>(response.Content);
         }
+        public async Task<dynamic> GetAllJurisdictions()
+        {
+            var request = new RestRequest($"/api/Custom/AllJurisdictions");
+            request.AddHeader("ocp-apim-subscription-key", _ocp_apim_subscription_key);
+            var response = await _client.GetAsync(request);
+            return JsonConvert.DeserializeObject<dynamic>(response.Content);
+        }
+        
         public async Task<dynamic> GetAgendasByEmail(string email)
         {
             var request = new RestRequest($"/api/Custom/GetAgendasByEmail/{email}");
@@ -172,12 +183,52 @@ namespace CyoloFrontAppInterface.Data
             var response = await _client.GetAsync(request);
             return JsonConvert.DeserializeObject<dynamic>(response.Content);
         }
-        public async Task<dynamic> GetAllJurisdictions()
+        public async Task<IEnumerable<JuridictionTypeDto>> GetAllJurisdictionTypes()
         {
-            var request = new RestRequest($"/api/Custom/AllJurisdictions");
+            var request = new RestRequest($"/api/Courts/JuridictionTypes");
             request.AddHeader("ocp-apim-subscription-key", _ocp_apim_subscription_key);
             var response = await _client.GetAsync(request);
-            return JsonConvert.DeserializeObject<dynamic>(response.Content);
+            return JsonConvert.DeserializeObject<IEnumerable<JuridictionTypeDto>>(response.Content);
+        }
+
+        public async Task<ResponseDto> GetEmployeeList(
+                string _draw,
+                string _sortColumn,
+                string _sortColumnDirection,
+                string _searchValue,
+                int _pageSize,
+                int _skip,
+                string date,
+                string lawyername
+            )
+        {
+            var draw =_draw;
+            var sortColumn = _sortColumn;
+            var sortColumnDirection = _sortColumnDirection;
+            var searchValue = _searchValue;
+            int pageSize = _pageSize;
+            int skip = _skip;
+
+            var request = new RestRequest($"/api/Custom/Test");
+            request.AddHeader("ocp-apim-subscription-key", _ocp_apim_subscription_key);
+            request.AddParameter("draw", draw);
+            request.AddParameter("date", date);
+            request.AddParameter("lawyername", lawyername);
+            request.AddParameter("sortColumn", sortColumn);
+            request.AddParameter("sortColumnDirection", sortColumnDirection);
+            request.AddParameter("searchValue", searchValue);
+            request.AddParameter("pageSize", pageSize);
+            request.AddParameter("skip", skip);
+
+            var response = await _client.GetAsync(request);
+            var data = JsonConvert.DeserializeObject<ResponseDto>(response.Content);
+            return await Task.FromResult( new ResponseDto
+            {
+                draw = data.draw,
+                recordsTotal = data.recordsTotal,
+                recordsFiltered = data.recordsFiltered,
+                data = data.data
+            });
         }
 
     }
