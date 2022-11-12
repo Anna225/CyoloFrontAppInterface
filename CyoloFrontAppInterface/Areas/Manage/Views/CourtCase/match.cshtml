@@ -20,7 +20,12 @@
                 <option></option>
                 @foreach (var item in ViewBag.JurisdictionTypes)
                 {
-                    <option value="@item.ToString()">@item.ToString()</option>
+                    if (@item.ToString() == ViewBag.CourtCase.hearingGeneral)
+                    {
+                        <option value="@item.ToString()" selected>@item.ToString()</option>
+                    }else{
+                        <option value="@item.ToString()">@item.ToString()</option>
+                    }                    
                 }
             </select>
             <p class="error">Please select jurisdiction.</p>
@@ -29,7 +34,7 @@
     <div class="row">
         <div class="form-group col-md-4">
             <label for="chamberid">ChamberID:</label>
-            <input type="text" id="chamberid" placeholder="Chamber ID" class="form-control" />
+            <input type="text" id="chamberid" placeholder="Chamber ID" class="form-control" value="@ViewBag.CourtCase.chamberId" />
             <p class="error">Please select ChamberID.</p>
         </div>
         <div class="form-group col-md-3">
