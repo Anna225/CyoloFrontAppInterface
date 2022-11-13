@@ -262,7 +262,11 @@ function getJuridictionList() {
         },
         success: function (response) {
             console.log(response);
-            $("#jurisdiction").append("<option>"+1234567890+"</option>")
+            var html = "<option>Select jurisdiction...</option>";
+            response.forEach(item => {
+                html += "<option>" + formatSelectionJuridiction(item) +"</option>"
+            });
+            $("#jurisdiction").html(html);
         },
         error: function (err) {
             console.log(err);
@@ -313,14 +317,16 @@ function formatResultJuridiction(data) {
 }
 function formatSelectionJuridiction(data) {
     var lib_juridiction = '';
-    if (!data.type_juridiction) { return "Rechtscollege"; }
-    var res = data.type_juridiction.split(' - ');
+    if (!data.typeJuridiction) { return "Rechtscollege"; }
+    var res = data.typeJuridiction.split(' - ');
     lib_juridiction = res[0] + ' ' + data.canton;
-    if (data.division_id != '000') { lib_juridiction = lib_juridiction + ' AFDELING ' + data.division; }
-    if (data.type_juridiction_id == 38) { lib_juridiction = lib_juridiction.replace('DIVISION', 'SIEGE'); lib_juridiction = lib_juridiction.replace('AFDELING', 'ZETEL'); }
-    section = (res.length > 1) ? ', ' + res[1] : '';
-    lib_juridiction = lib_juridiction + section
-    $('#label_juridiction').html(lib_juridiction);
+    if (data.divisionId != '000') { lib_juridiction = lib_juridiction + ' AFDELING ' + data.division; }
+    if (data.typeJuridictionId == 38) {
+        lib_juridiction = lib_juridiction.replace('DIVISION', 'SIEGE');
+        lib_juridiction = lib_juridiction.replace('AFDELING', 'ZETEL');
+    }
+    var section = (res.length > 1) ? ', ' + res[1] : '';
+    lib_juridiction = lib_juridiction + section;
     return lib_juridiction;
 }
 function formatNoResultJuridiction(term) {
