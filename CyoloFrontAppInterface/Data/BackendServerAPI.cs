@@ -190,22 +190,21 @@ namespace CyoloFrontAppInterface.Data
             var response = await _client.GetAsync(request);
             return JsonConvert.DeserializeObject<IEnumerable<JuridictionTypeDto>>(response.Content);
         }
-        public async Task<JsonResult> GetAllTypes()
+        public async Task<List<CourtDto>> GetAllTypes()
         {
-            RestClient _client = new RestClient("https://dossier.just.fgov.be");
-            var request = new RestRequest($"/cgi-main/ajax-request-json.pl");
-
-            request.AddHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-            request.AddHeader("Access-Control-Allow-Headers", "X-Requested-With, Content-Type, Accept, X-Token");
-            request.AddHeader("Access-Control-Allow-Credentials", "true");
-            
+            RestClient __client = new RestClient("https://dossier.just.fgov.be");
+            var request = new RestRequest("cgi-main/ajax-request-json.pl");
             request.AddParameter("requete", "json_list");
             request.AddParameter("lg", "nl");
             request.AddParameter("liste", "juridiction");
             request.AddParameter("backend", "N");
-            request.AddParameter("search", "");
-            var response = await _client.GetAsync(request);
-            return JsonConvert.DeserializeObject<JsonResult>(response.Content);
+            var response = await __client.GetAsync(request);
+            var results = JsonConvert.DeserializeObject<CourtResultDto>(response.Content);
+            if (results != null && results.Data.Count > 0)
+            {
+                return results.Data;
+            }
+            return null;
         }
 
         public async Task<ResponseDto> GetEmployeeList(

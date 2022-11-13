@@ -35,7 +35,7 @@ namespace CyoloFrontAppInterface.Controllers
 
         // GET: HomeController/GetAllTypes
         [HttpGet("Home/GetAllTypes")]
-        public async Task<JsonResult> GetAllTypes()
+        public async Task<List<CourtDto>> GetAllTypes()
         {
             BackendServerAPI ls = new BackendServerAPI();
             return await ls.GetAllTypes();

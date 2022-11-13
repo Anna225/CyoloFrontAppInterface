@@ -250,7 +250,6 @@ $(function () {
 });
 
 function getJuridictionList() {
-    alert("called");
     $.ajax({
         url: "/Home/GetAllTypes",
         type: "get",
@@ -259,7 +258,7 @@ function getJuridictionList() {
         headers: {
             "Access-Control-Allow-Origin": "*",
             "Access-Control-Expose-Headers": "*",
-            //"Content-Type": "application/json"
+            "Content-Type": "application/json"
         },
         success: function (response) {
             console.log(response);
