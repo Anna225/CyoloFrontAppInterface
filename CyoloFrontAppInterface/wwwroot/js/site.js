@@ -207,7 +207,7 @@ $(function () {
             $("#hearingdate").val(newDate);
         }
     });
-
+    /*
     $("#select_juridiction_id").select2({
         closeOnSelect: true,
         language: 'nl',
@@ -237,16 +237,16 @@ $(function () {
         templateSelection: formatSelectionJuridiction,  // omitted for brevity, see the source of this page
         escapeMarkup: function (m) { return m; } // we do not want to escape markup since we are displaying html in results
     });
+    */
 
-    $("#select_juridiction_id").on('change', function (e) {
-        var tmp = this.value.split('-');
-        $('#jur_num').val(tmp[0]);
-        $('#jur_annexe').val(tmp[1]);
-        $('#liste_fixations').html('');
-        show_div('/cgi-dossier/ajax-request-html.pl', 'show_fixations_form', tmp[0] + '--' + tmp[1] + '--nl', 'suite_formulaire');
-    }); 
+    //$("#select_juridiction_id").on('change', function (e) {
+    //    var tmp = this.value.split('-');
+    //    $('#jur_num').val(tmp[0]);
+    //    $('#jur_annexe').val(tmp[1]);
+    //    $('#liste_fixations').html('');
+    //    show_div('/cgi-dossier/ajax-request-html.pl', 'show_fixations_form', tmp[0] + '--' + tmp[1] + '--nl', 'suite_formulaire');
+    //}); 
 
-    getJuridictionList();
 });
 
 function getJuridictionList() {
@@ -256,6 +256,7 @@ function getJuridictionList() {
         data: null,
         dataType: "jsonp",
         delay: 250,
+        contentType: "application/json",
         crossDomain: true,
         headers: {
             "Access-Control-Allow-Origin": "*",
