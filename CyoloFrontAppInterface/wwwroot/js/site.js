@@ -271,7 +271,7 @@ function getJuridictionList() {
         }
     });
 }
-
+/*
 $("#select_juridiction_id").select2({
     closeOnSelect: true,
     language: 'nl',
@@ -301,6 +301,7 @@ $("#select_juridiction_id").select2({
     templateSelection: formatSelectionJuridiction,  // omitted for brevity, see the source of this page
     escapeMarkup: function (m) { return m; } // we do not want to escape markup since we are displaying html in results
 });
+*/
 function formatResultJuridiction(data) {
     if (!data.id) return data.message;
     var res = data.type_juridiction.split(' - ');
