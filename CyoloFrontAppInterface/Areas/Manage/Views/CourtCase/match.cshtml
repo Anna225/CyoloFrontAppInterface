@@ -152,12 +152,16 @@
                 response.sort(compare);
                 response.forEach(item => {
                     var val = formatSelectionJuridiction(item);
-                    html += "<option value='" + val + "'>" + val + "</option>"
+                    if (@ViewBag.CourtCase.hearingGeneral == val) {
+                        html += "<option value='" + val + "' selected>" + val + "</option>";
+                    } else {
+                        html += "<option value='" + val + "'>" + val + "</option>";
+                    }
                 });
                 $("#jurisdiction").html(html);
             },
             error: function (err) {
-                var html = "<option value=''>No reslt</option>";
+                var html = "<option value=''>No Result</option>";
                 $("#jurisdiction").html(html);
             }
         });
