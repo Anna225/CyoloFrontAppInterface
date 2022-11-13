@@ -262,9 +262,10 @@ function getJuridictionList() {
         },
         success: function (response) {
             console.log(response);
-            var html = "<option>Select jurisdiction...</option>";
+            var html = "<option value=''>Select Jurisdiction...</option>";
             response.forEach(item => {
-                html += "<option>" + formatSelectionJuridiction(item) +"</option>"
+                var val = formatSelectionJuridiction(item);
+                html += "<option value='" + val + "'>" + val +"</option>"
             });
             $("#jurisdiction").html(html);
         },

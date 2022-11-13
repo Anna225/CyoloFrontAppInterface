@@ -31,21 +31,21 @@ namespace CyoloFrontAppInterface.Areas.Manage.Controllers
             }
 
             BackendServerAPI ls = new BackendServerAPI();
-            var items = await ls.GetAllJurisdictionTypes();
-            List<string> Juridictions = new List<string>();
-            foreach (var item in items)
-            {
-                JuridictionTypeDto dto = new JuridictionTypeDto
-                {
-                    Canton = item.Canton,
-                    Division = item.Division,
-                    TypeJuridiction = item.TypeJuridiction,
-                    TypeJuridictionId = Convert.ToInt32(item.TypeJuridictionId),
-                    DivisionId = item.DivisionId
-                };
-                Juridictions.Add(makeJuridictionItem(dto));
-            }
-            ViewBag.JurisdictionTypes = Juridictions;
+            //var items = await ls.GetAllJurisdictionTypes();
+            //List<string> Juridictions = new List<string>();
+            //foreach (var item in items)
+            //{
+            //    JuridictionTypeDto dto = new JuridictionTypeDto
+            //    {
+            //        Canton = item.Canton,
+            //        Division = item.Division,
+            //        TypeJuridiction = item.TypeJuridiction,
+            //        TypeJuridictionId = Convert.ToInt32(item.TypeJuridictionId),
+            //        DivisionId = item.DivisionId
+            //    };
+            //    Juridictions.Add(makeJuridictionItem(dto));
+            //}
+            //ViewBag.JurisdictionTypes = Juridictions;
             try
             {
                 ViewBag.Model = await ls.GetCourtCaseByEmailAndDate(email, date);
@@ -78,21 +78,21 @@ namespace CyoloFrontAppInterface.Areas.Manage.Controllers
             }
 
             BackendServerAPI ls = new BackendServerAPI();
-            var items = await ls.GetAllJurisdictionTypes();
-            List<string> Juridictions = new List<string>();
-            foreach (var item in items)
-            {
-                JuridictionTypeDto dto = new JuridictionTypeDto
-                {
-                    Canton = item.Canton,
-                    Division = item.Division,
-                    TypeJuridiction = item.TypeJuridiction,
-                    TypeJuridictionId = Convert.ToInt32(item.TypeJuridictionId),
-                    DivisionId = item.DivisionId
-                };
-                Juridictions.Add(makeJuridictionItem(dto));
-            }
-            ViewBag.JurisdictionTypes = Juridictions;
+            //var items = await ls.GetAllJurisdictionTypes();
+            //List<string> Juridictions = new List<string>();
+            //foreach (var item in items)
+            //{
+            //    JuridictionTypeDto dto = new JuridictionTypeDto
+            //    {
+            //        Canton = item.Canton,
+            //        Division = item.Division,
+            //        TypeJuridiction = item.TypeJuridiction,
+            //        TypeJuridictionId = Convert.ToInt32(item.TypeJuridictionId),
+            //        DivisionId = item.DivisionId
+            //    };
+            //    Juridictions.Add(makeJuridictionItem(dto));
+            //}
+            //ViewBag.JurisdictionTypes = Juridictions;
             ViewBag.Lawyer = await ls.GetLawyerByEmail(HttpContext.Session.GetString("userinfo"));
 
             try
