@@ -258,6 +258,7 @@ function getJuridictionList() {
         dataType: "json",
         headers: {
             "Access-Control-Allow-Origin": "*",
+            "Access-Control-Expose-Headers": "*",
             //"Content-Type": "application/json"
         },
         success: function (response) {
