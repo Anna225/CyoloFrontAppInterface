@@ -190,6 +190,18 @@ namespace CyoloFrontAppInterface.Data
             var response = await _client.GetAsync(request);
             return JsonConvert.DeserializeObject<IEnumerable<JuridictionTypeDto>>(response.Content);
         }
+        public async Task<JsonResult> GetAllTypes()
+        {
+            RestClient _client = new RestClient("https://dossier.just.fgov.be");
+            var request = new RestRequest($"/cgi-main/ajax-request-json.pl");
+            request.AddParameter("requete", "json_list");
+            request.AddParameter("lg", "nl");
+            request.AddParameter("liste", "juridiction");
+            request.AddParameter("backend", "N");
+            request.AddParameter("search", "");
+            var response = await _client.GetAsync(request);
+            return JsonConvert.DeserializeObject<JsonResult>(response.Content);
+        }
 
         public async Task<ResponseDto> GetEmployeeList(
                 string _draw,

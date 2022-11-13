@@ -33,6 +33,14 @@ namespace CyoloFrontAppInterface.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
+        // GET: HomeController/GetAllTypes
+        [HttpGet("Home/GetAllTypes")]
+        public async Task<JsonResult> GetAllTypes()
+        {
+            BackendServerAPI ls = new BackendServerAPI();
+            return await ls.GetAllTypes();
+        }
+
         //[HttpPost]
         //public async Task<ResponseDto> GetCourtCaseList()
         //{

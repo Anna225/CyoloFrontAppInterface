@@ -250,8 +250,9 @@ $(function () {
 });
 
 function getJuridictionList() {
+    alert("called");
     $.ajax({
-        url: "https://dossier.just.fgov.be/cgi-main/ajax-request-json.pl?requete=json_list&lg=nl&liste=juridiction&backend=N&search=",
+        url: "/Home/GetAllTypes",
         type: "get",
         data: null,
         dataType: "json",
