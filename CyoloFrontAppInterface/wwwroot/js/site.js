@@ -249,31 +249,6 @@ $(function () {
 
 });
 
-function getJuridictionList() {
-    $.ajax({
-        url: "/Home/GetAllTypes",
-        type: "get",
-        data: null,
-        dataType: "json",
-        headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Expose-Headers": "*",
-            "Content-Type": "application/json"
-        },
-        success: function (response) {
-            console.log(response);
-            var html = "<option value=''>Select Jurisdiction...</option>";
-            response.forEach(item => {
-                var val = formatSelectionJuridiction(item);
-                html += "<option value='" + val + "'>" + val +"</option>"
-            });
-            $("#jurisdiction").html(html);
-        },
-        error: function (err) {
-            console.log(err);
-        }
-    });
-}
 /*
 $("#select_juridiction_id").select2({
     closeOnSelect: true,

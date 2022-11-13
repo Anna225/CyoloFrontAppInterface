@@ -17,16 +17,7 @@
         <div class="form-group col-md-12">
             <label for="jurisdiction">Jurisdiction:</label>
             <select id="jurisdiction" name="jurisdiction" class="form-control">
-                <option></option>
-                @foreach (var item in ViewBag.JurisdictionTypes)
-                {
-                    if (@item.ToString() == ViewBag.CourtCase.hearingGeneral)
-                    {
-                        <option value="@item.ToString()" selected>@item.ToString()</option>
-                    }else{
-                        <option value="@item.ToString()">@item.ToString()</option>
-                    }                    
-                }
+                <option>@ViewBag.CourtCase.hearingGeneral</option>
             </select>
             <p class="error">Please select jurisdiction.</p>
         </div>
@@ -143,6 +134,32 @@
         }
 
         $("#searchform").submit();
+    }
+
+    function getJuridictionList() {
+        $.ajax({
+            url: "/Home/GetAllTypes",
+            type: "get",
+            data: null,
+            dataType: "json",
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Expose-Headers": "*",
+                "Content-Type": "application/json"
+            },
+            success: function (response) {
+                var html = "<option value=''>Select Jurisdiction...</option>";
+                response.forEach(item => {
+                    var val = formatSelectionJuridiction(item);
+                    html += "<option value='" + val + "'>" + val + "</option>"
+                });
+                $("#jurisdiction").html(html);
+            },
+            error: function (err) {
+                var html = "<option value=''>No reslt</option>";
+                $("#jurisdiction").html(html);
+            }
+        });
     }
 </script>
 @{

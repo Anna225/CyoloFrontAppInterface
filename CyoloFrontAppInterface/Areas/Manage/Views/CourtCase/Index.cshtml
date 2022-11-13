@@ -109,13 +109,7 @@
                         <label>Jurisdiction</label>
                     </div>
                     <div class="col-md-10">
-                        <select id="jurisdiction" class="form-control">
-                            @*<option></option>
-                            @foreach (var item in ViewBag.JurisdictionTypes)
-                            {
-                                <option value="@item.ToString()">@item.ToString()</option>
-                            }*@
-                        </select>
+                        <select id="jurisdiction" class="form-control"></select>
                         <p class="error">Please select jurisdiction.</p>
                     </div>
                 </div>
@@ -214,5 +208,31 @@
             }
             $("#searchform").submit();
         }
+    }
+
+    function getJuridictionList() {
+        $.ajax({
+            url: "/Home/GetAllTypes",
+            type: "get",
+            data: null,
+            dataType: "json",
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Expose-Headers": "*",
+                "Content-Type": "application/json"
+            },
+            success: function (response) {
+                var html = "<option value=''>Select Jurisdiction...</option>";
+                response.forEach(item => {
+                    var val = formatSelectionJuridiction(item);
+                    html += "<option value='" + val + "'>" + val + "</option>"
+                });
+                $("#jurisdiction").html(html);
+            },
+            error: function (err) {
+                var html = "<option value=''>No reslt</option>";
+                $("#jurisdiction").html(html);
+            }
+        });
     }
 </script>

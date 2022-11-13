@@ -31,21 +31,6 @@ namespace CyoloFrontAppInterface.Areas.Manage.Controllers
             }
 
             BackendServerAPI ls = new BackendServerAPI();
-            //var items = await ls.GetAllJurisdictionTypes();
-            //List<string> Juridictions = new List<string>();
-            //foreach (var item in items)
-            //{
-            //    JuridictionTypeDto dto = new JuridictionTypeDto
-            //    {
-            //        Canton = item.Canton,
-            //        Division = item.Division,
-            //        TypeJuridiction = item.TypeJuridiction,
-            //        TypeJuridictionId = Convert.ToInt32(item.TypeJuridictionId),
-            //        DivisionId = item.DivisionId
-            //    };
-            //    Juridictions.Add(makeJuridictionItem(dto));
-            //}
-            //ViewBag.JurisdictionTypes = Juridictions;
             try
             {
                 ViewBag.Model = await ls.GetCourtCaseByEmailAndDate(email, date);
@@ -78,21 +63,6 @@ namespace CyoloFrontAppInterface.Areas.Manage.Controllers
             }
 
             BackendServerAPI ls = new BackendServerAPI();
-            //var items = await ls.GetAllJurisdictionTypes();
-            //List<string> Juridictions = new List<string>();
-            //foreach (var item in items)
-            //{
-            //    JuridictionTypeDto dto = new JuridictionTypeDto
-            //    {
-            //        Canton = item.Canton,
-            //        Division = item.Division,
-            //        TypeJuridiction = item.TypeJuridiction,
-            //        TypeJuridictionId = Convert.ToInt32(item.TypeJuridictionId),
-            //        DivisionId = item.DivisionId
-            //    };
-            //    Juridictions.Add(makeJuridictionItem(dto));
-            //}
-            //ViewBag.JurisdictionTypes = Juridictions;
             ViewBag.Lawyer = await ls.GetLawyerByEmail(HttpContext.Session.GetString("userinfo"));
 
             try
@@ -144,21 +114,7 @@ namespace CyoloFrontAppInterface.Areas.Manage.Controllers
             }
 
             BackendServerAPI ls = new BackendServerAPI();
-            var items = await ls.GetAllJurisdictionTypes();
-            List<string> Juridictions = new List<string>();
-            foreach (var item in items)
-            {
-                JuridictionTypeDto dto = new JuridictionTypeDto
-                {
-                    Canton = item.Canton,
-                    Division = item.Division,
-                    TypeJuridiction = item.TypeJuridiction,
-                    TypeJuridictionId = Convert.ToInt32(item.TypeJuridictionId),
-                    DivisionId = item.DivisionId
-                };
-                Juridictions.Add(makeJuridictionItem(dto));
-            }
-            ViewBag.JurisdictionTypes = Juridictions;
+            
             ViewBag.Model = await ls.GetLawyersByCourtcaseno(courtCaseNo);
             ViewBag.CourtCase = await ls.GetCourtCaseByNo(courtCaseNo);
             ViewBag.Lawyer = await ls.GetLawyerByEmail(HttpContext.Session.GetString("userinfo"));
@@ -197,21 +153,7 @@ namespace CyoloFrontAppInterface.Areas.Manage.Controllers
             }
 
             BackendServerAPI ls = new BackendServerAPI();
-            var items = await ls.GetAllJurisdictionTypes();
-            List<string> Juridictions = new List<string>();
-            foreach (var item in items)
-            {
-                JuridictionTypeDto dto = new JuridictionTypeDto
-                {
-                    Canton = item.Canton,
-                    Division = item.Division,
-                    TypeJuridiction = item.TypeJuridiction,
-                    TypeJuridictionId = Convert.ToInt32(item.TypeJuridictionId),
-                    DivisionId = item.DivisionId
-                };
-                Juridictions.Add(makeJuridictionItem(dto));
-            }
-            ViewBag.JurisdictionTypes = Juridictions;
+            
             ViewBag.Lawyer = await ls.GetLawyerByEmail(HttpContext.Session.GetString("userinfo"));
 
             SearchDto retval = new SearchDto {
