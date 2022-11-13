@@ -108,7 +108,7 @@
 </table>
 <script>
     function submitForm() {;
-
+        console.log($("#jurisdiction").val());
         if ($("#jurisdiction").val() == '') {
             $("#jurisdiction").siblings().addClass("b");
             $("#jurisdiction").focus();
