@@ -123,14 +123,6 @@ namespace CyoloFrontAppInterface.Data
             var response = await _client.GetAsync(request);
             return JsonConvert.DeserializeObject<dynamic>(response.Content);
         }
-
-        public async Task<dynamic> GetLawyersByCourtcaseno(string courtcaseno)
-        {
-            var request = new RestRequest($"/api/Custom/LawyersByCourtCaseId/{courtcaseno}");
-            request.AddHeader("ocp-apim-subscription-key", _ocp_apim_subscription_key);
-            var response = await _client.GetAsync(request);
-            return JsonConvert.DeserializeObject<dynamic>(response.Content);
-        }
         
         public async Task<dynamic> GetAvailableLawyersByCourtCaseNo(string courtcaseno)
         {

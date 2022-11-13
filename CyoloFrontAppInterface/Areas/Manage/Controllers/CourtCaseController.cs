@@ -115,7 +115,6 @@ namespace CyoloFrontAppInterface.Areas.Manage.Controllers
 
             BackendServerAPI ls = new BackendServerAPI();
             
-            ViewBag.Model = await ls.GetLawyersByCourtcaseno(courtCaseNo);
             ViewBag.CourtCase = await ls.GetCourtCaseByNo(courtCaseNo);
             ViewBag.Lawyer = await ls.GetLawyerByEmail(HttpContext.Session.GetString("userinfo"));
             ViewBag.AvailableModel = await ls.GetAvailableLawyersByCourtCaseNo(courtCaseNo);
