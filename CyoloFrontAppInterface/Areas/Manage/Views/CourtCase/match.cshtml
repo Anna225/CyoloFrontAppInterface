@@ -152,7 +152,7 @@
                 response.sort(compare);
                 response.forEach(item => {
                     var val = formatSelectionJuridiction(item);
-                    if (@ViewBag.CourtCase.hearingGeneral == val) {
+                    if ("@ViewBag.CourtCase.hearingGeneral" == val) {
                         html += "<option value='" + val + "' selected>" + val + "</option>";
                     } else {
                         html += "<option value='" + val + "'>" + val + "</option>";
