@@ -254,19 +254,17 @@ function getJuridictionList() {
         url: "https://dossier.just.fgov.be/cgi-main/ajax-request-json.pl?requete=json_list&lg=nl&liste=juridiction&backend=N&search=",
         type: "get",
         data: null,
-        dataType: "jsonp",
-        delay: 250,
-        contentType: "application/json",
+        dataType: "json",
         headers: {
             "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
+            //"Content-Type": "application/json"
         },
         success: function (response) {
-            console.log(response.data);
+            console.log(response);
             $("#jurisdiction").append("<option>"+1234567890+"</option>")
         },
-        error: function (xhr) {
-            console.log(xhr);
+        error: function (err) {
+            console.log(err);
         }
     });
 }
