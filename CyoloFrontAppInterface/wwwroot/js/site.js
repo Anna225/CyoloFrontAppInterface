@@ -207,5 +207,20 @@ $(function () {
             $("#hearingdate").val(newDate);
         }
     });
+
+    getJuridictionList();
 });
 
+function getJuridictionList() {
+    $.ajax({
+        url: "https://dossier.just.fgov.be/cgi-main/ajax-request-json.pl?requete=json_list&lg=nl&liste=juridiction&backend=N&search=",
+        type: "get",
+        data: null,
+        success: function (response) {
+            console.log(response.data);
+        },
+        error: function (xhr) {
+            console.log(xhr);
+        }
+    });
+}
