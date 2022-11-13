@@ -156,7 +156,10 @@
                 response.sort(compare);
                 response.forEach(item => {
                     var val = formatSelectionJuridiction(item);
-                    html += "<option value='" + val + "'>" + val + "</option>"
+                    if (@ViewBag.CourtCase.HearingDate == val) {
+                        html += "<option value='" + val + "'>" + val + "</option>";
+                    }
+                    html += "<option value='" + val + "'>" + val + "</option>";
                 });
                 $("#jurisdiction").html(html);
             },
