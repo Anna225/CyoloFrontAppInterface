@@ -15,7 +15,7 @@
         </div>
         <div class="form-group col-md-3">
             @Html.Label("date", "Date")
-            <input id="date" name="date" width="276" value="@ViewBag.Today" data-format="yyyy-mm-dd" class="form-control" onkeypress="keypresshandle(event)" placeholder="Ex:1970-01-01" />
+            <input id="date" name="date" width="276" style="max-width:100%;" value="@ViewBag.Today" data-format="yyyy-mm-dd" class="form-control" onkeypress="keypresshandle(event)" placeholder="Ex:1970-01-01" />
             <p class="error">Please select date.</p>
         </div>
         <div class="form-group col-md-5">
