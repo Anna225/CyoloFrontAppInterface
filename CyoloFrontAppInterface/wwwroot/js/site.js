@@ -208,6 +208,44 @@ $(function () {
         }
     });
 
+    $("#select_juridiction_id").select2({
+        closeOnSelect: true,
+        language: 'nl',
+        placeholder: "Rechtscollege",
+        minimumInputLength: 3,
+        ajax: {
+            url: "/cgi-main/ajax-request-json.pl",
+            dataType: 'json',
+            delay: 250,
+            data: function (term) {
+                return {
+                    requete: 'json_list',
+                    liste: 'juridiction',
+                    backend: 'N',
+                    search: term.term,
+                    lg: 'nl',
+                };
+            },
+            processResults: function (data, page) { // parse the results into the format expected by Select2.
+                // since we are using custom formatting functions we do not need to alter the remote JSON data
+                if (data.message !== '') { return { results: [] }; }
+                if (data.message == '') { return { results: data.data }; }
+            },
+            cache: true
+        },
+        templateResult: formatResultJuridiction, // omitted for brevity, see the source of this page
+        templateSelection: formatSelectionJuridiction,  // omitted for brevity, see the source of this page
+        escapeMarkup: function (m) { return m; } // we do not want to escape markup since we are displaying html in results
+    });
+
+    $("#select_juridiction_id").on('change', function (e) {
+        var tmp = this.value.split('-');
+        $('#jur_num').val(tmp[0]);
+        $('#jur_annexe').val(tmp[1]);
+        $('#liste_fixations').html('');
+        show_div('/cgi-dossier/ajax-request-html.pl', 'show_fixations_form', tmp[0] + '--' + tmp[1] + '--nl', 'suite_formulaire');
+    }); 
+
     getJuridictionList();
 });
 
@@ -216,11 +254,75 @@ function getJuridictionList() {
         url: "https://dossier.just.fgov.be/cgi-main/ajax-request-json.pl?requete=json_list&lg=nl&liste=juridiction&backend=N&search=",
         type: "get",
         data: null,
+        dataType: "jsonp",
+        delay: 250,
+        crossDomain: true,
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
+        },
         success: function (response) {
             console.log(response.data);
+            $("#jurisdiction").append("<option>"+1234567890+"</option>")
         },
         error: function (xhr) {
             console.log(xhr);
         }
     });
+}
+
+$("#select_juridiction_id").select2({
+    closeOnSelect: true,
+    language: 'nl',
+    placeholder: "Rechtscollege",
+    minimumInputLength: 3,
+    ajax: {
+        url: "/cgi-main/ajax-request-json.pl",
+        dataType: 'json',
+        delay: 250,
+        data: function (term) {
+            return {
+                requete: 'json_list',
+                liste: 'juridiction',
+                backend: 'N',
+                search: term.term,
+                lg: 'nl',
+            };
+        },
+        processResults: function (data, page) { // parse the results into the format expected by Select2.
+            // since we are using custom formatting functions we do not need to alter the remote JSON data
+            if (data.message !== '') { return { results: [] }; }
+            if (data.message == '') { return { results: data.data }; }
+        },
+        cache: true
+    },
+    templateResult: formatResultJuridiction, // omitted for brevity, see the source of this page
+    templateSelection: formatSelectionJuridiction,  // omitted for brevity, see the source of this page
+    escapeMarkup: function (m) { return m; } // we do not want to escape markup since we are displaying html in results
+});
+function formatResultJuridiction(data) {
+    if (!data.id) return data.message;
+    var res = data.type_juridiction.split(' - ');
+    var lib_juridiction = '<div> ' + data.jur_num + '-' + data.jur_annexe + ' ' + res[0] + ' ' + data.canton;
+    if (data.division_id != '000') { lib_juridiction = lib_juridiction + ' AFDELING ' + data.division; }
+    if (data.type_juridiction_id == 38) { lib_juridiction = lib_juridiction.replace('DIVISION', 'SIEGE'); lib_juridiction = lib_juridiction.replace('AFDELING', 'ZETEL'); }
+    section = (res.length > 1) ? ', ' + res[1] : '';
+    lib_juridiction = lib_juridiction + section
+    lib_juridiction = lib_juridiction + '</div>'
+    return lib_juridiction;
+}
+function formatSelectionJuridiction(data) {
+    var lib_juridiction = '';
+    if (!data.type_juridiction) { return "Rechtscollege"; }
+    var res = data.type_juridiction.split(' - ');
+    lib_juridiction = res[0] + ' ' + data.canton;
+    if (data.division_id != '000') { lib_juridiction = lib_juridiction + ' AFDELING ' + data.division; }
+    if (data.type_juridiction_id == 38) { lib_juridiction = lib_juridiction.replace('DIVISION', 'SIEGE'); lib_juridiction = lib_juridiction.replace('AFDELING', 'ZETEL'); }
+    section = (res.length > 1) ? ', ' + res[1] : '';
+    lib_juridiction = lib_juridiction + section
+    $('#label_juridiction').html(lib_juridiction);
+    return lib_juridiction;
+}
+function formatNoResultJuridiction(term) {
+    return '<div>No result for Juridiction ' + term + '</div>';
 }
