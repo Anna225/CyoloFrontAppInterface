@@ -17,7 +17,7 @@
         <div class="form-group col-md-12">
             <label for="jurisdiction">Jurisdiction:</label>
             <select id="jurisdiction" name="jurisdiction" class="form-control">
-                <option>@ViewBag.CourtCase.hearingGeneral</option>
+                <option value="@ViewBag.CourtCase.hearingGeneral">@ViewBag.CourtCase.hearingGeneral</option>
             </select>
             <p class="error">Please select jurisdiction.</p>
         </div>
@@ -107,8 +107,7 @@
     </tbody>
 </table>
 <script>
-    function submitForm() {;
-        console.log($("#jurisdiction").val());
+    function submitForm() {
         if ($("#jurisdiction").val() == '') {
             $("#jurisdiction").siblings().addClass("b");
             $("#jurisdiction").focus();
