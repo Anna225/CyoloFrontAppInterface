@@ -207,6 +207,9 @@ $(function () {
             $("#hearingdate").val(newDate);
         }
     });
+    if (window.location.href.includes("Match") || window.location.href.includes("GetByCourtCase")) {
+        getJuridictionList();
+    }
     /*
     $("#select_juridiction_id").select2({
         closeOnSelect: true,
@@ -307,4 +310,13 @@ function formatSelectionJuridiction(data) {
 }
 function formatNoResultJuridiction(term) {
     return '<div>No result for Juridiction ' + term + '</div>';
+}
+function compare(a, b) {
+    if (a.last_nom < b.last_nom) {
+        return -1;
+    }
+    if (a.last_nom > b.last_nom) {
+        return 1;
+    }
+    return 0;
 }

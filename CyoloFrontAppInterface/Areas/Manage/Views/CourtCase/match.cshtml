@@ -149,6 +149,7 @@
             },
             success: function (response) {
                 var html = "<option value=''>Select Jurisdiction...</option>";
+                response.sort(compare);
                 response.forEach(item => {
                     var val = formatSelectionJuridiction(item);
                     html += "<option value='" + val + "'>" + val + "</option>"
