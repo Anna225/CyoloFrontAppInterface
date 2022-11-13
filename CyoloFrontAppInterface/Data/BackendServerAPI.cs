@@ -194,6 +194,11 @@ namespace CyoloFrontAppInterface.Data
         {
             RestClient _client = new RestClient("https://dossier.just.fgov.be");
             var request = new RestRequest($"/cgi-main/ajax-request-json.pl");
+
+            request.AddHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+            request.AddHeader("Access-Control-Allow-Headers", "X-Requested-With, Content-Type, Accept, X-Token");
+            request.AddHeader("Access-Control-Allow-Credentials", "true");
+            
             request.AddParameter("requete", "json_list");
             request.AddParameter("lg", "nl");
             request.AddParameter("liste", "juridiction");
