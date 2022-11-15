@@ -58,7 +58,14 @@ function customConvertTime(time) {
     event = event + "00";
     return event;
 }
+function generateUniqSerial() {
+    return 'xxxxxxxx-xxxx-xxx-xxxx-xxxxxxxxxxxx'.replace(/[x]/g, function (c) {
+        var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+    });
+}
 function makeIcsFile(date, summary, description) {
+
     var test =
         "BEGIN:VCALENDAR\n" +
         "CALSCALE:GREGORIAN\n" +
@@ -66,13 +73,13 @@ function makeIcsFile(date, summary, description) {
         "PRODID:-//Test Cal//EN\n" +
         "VERSION:2.0\n" +
         "BEGIN:VEVENT\n" +
-        "UID:21B97459-D97B-4B23-AF2A-E2759745C299\n" +
         "SUMMARY:" +
         summary +
         "\n" +
         "DESCRIPTION:" +
         description +
         "\n" +
+        "UID:" + generateUniqSerial() + "\n" +
         "DTSTART;VALUE=DATE:" +
         customConvertDate(date.start.day) + "T" + customConvertTime(date.start.time) + 
         "\n" +
