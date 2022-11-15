@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "PrBaV/edpbxPz3ohsA8PtY5E7qYlrbS9VnN4Ue00BUs=",
+  "Hash": "TqizVPk7F2GJBeJBcyTf4jnbLE61T8NRugscj2CsW2E=",
   "Source": "CyoloFrontAppInterface",
   "BasePath": "_content/CyoloFrontAppInterface",
   "Mode": "Default",
@@ -1105,6 +1105,23 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
+      "Identity": "D:\\CyoloFrontAppInterface\\CyoloFrontAppInterface\\wwwroot\\images\\download.svg",
+      "SourceId": "CyoloFrontAppInterface",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\CyoloFrontAppInterface\\CyoloFrontAppInterface\\wwwroot\\",
+      "BasePath": "_content/CyoloFrontAppInterface",
+      "RelativePath": "images/download.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\download.svg"
+    },
+    {
       "Identity": "D:\\CyoloFrontAppInterface\\CyoloFrontAppInterface\\wwwroot\\images\\main.jpeg",
       "SourceId": "CyoloFrontAppInterface",
       "SourceType": "Discovered",
@@ -1137,6 +1154,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\bootstrap-datetimepicker.min.js"
+    },
+    {
+      "Identity": "D:\\CyoloFrontAppInterface\\CyoloFrontAppInterface\\wwwroot\\js\\icsmake.js",
+      "SourceId": "CyoloFrontAppInterface",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\CyoloFrontAppInterface\\CyoloFrontAppInterface\\wwwroot\\",
+      "BasePath": "_content/CyoloFrontAppInterface",
+      "RelativePath": "js/icsmake.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\icsmake.js"
     },
     {
       "Identity": "D:\\CyoloFrontAppInterface\\CyoloFrontAppInterface\\wwwroot\\js\\jquery-3.3.1.min.js",

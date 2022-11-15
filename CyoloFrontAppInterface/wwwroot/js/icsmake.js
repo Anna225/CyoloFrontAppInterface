@@ -12,11 +12,15 @@ function downloadCourtCase(elem, id) {
         end: new Date()
     }
     var summary = $(tds[1]).html();
-    var description = "Jurisdiction:" + $(tds[2]).text() + "\nHearing Time is " + $(tds[5]).text();
+    var description = "Jurisdiction:" + $(tds[2]).text() + ", Hearing Time is " + $(tds[5]).text();
     var a = document.createElement('a');
     a.download = 'scheduler.ics';
     a.href = makeIcsFile(eventDate, summary, description);
     a.click();
+
+    $('.toast-body').text("Downloaded sucessuflly!");
+    $('.toast').toast({ animation: true, delay: 2000 });
+    $('.toast').toast('show');
 }
 function convertDate(date) {
     var event = new Date(date).toISOString();
@@ -48,7 +52,7 @@ function makeIcsFile(date, summary, description) {
         "\n" +
         "END:VEVENT\n" +
         "END:VCALENDAR";
-    var data = new File([test], { type: "text/plain" });
+    var data = new File([test], { type: "text/calendar" });
     // console.log(test)
     // If we are replacing a previously generated file we need to
     // manually revoke the object URL to avoid memory leaks.

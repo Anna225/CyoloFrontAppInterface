@@ -172,8 +172,22 @@ td > a.btn {
 
 .btn-download {
     background-color: slategrey !important;
+    color: white;
 }
 
 .btn-download:hover {
     background-color: darkgrey !important;
+    color: white;
+}
+.input-group-append > button > i.gj-icon {
+    color: #fff;
+}
+
+.input-group-append > button:hover {
+    background-color: transparent;
+    border: 1px solid lightgrey;
+}
+
+.input-group-append > button:hover > i.gj-icon {
+    color: #000;
 }

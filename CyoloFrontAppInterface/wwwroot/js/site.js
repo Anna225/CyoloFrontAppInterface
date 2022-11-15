@@ -51,20 +51,24 @@ $(function () {
                 dataType: "json",
                 success: function (response) {
                     if (response != null) {
-                        $("#rsDlg .modal-body").html(response.value);
-                        $("#rsDlg").modal();
+                        $('.toast-body').text(response.value);
+                        $('.toast').toast({ animation: true, delay: 2000 });
+                        $('.toast').toast('show');
                     } else {
-                        $("#rsDlg .modal-body").html("Something went wrong");
-                        $("#rsDlg").modal();
+                        $('.toast-body').text(response.value);
+                        $('.toast').toast({ animation: true, delay: 2000 });
+                        $('.toast').toast('show');
                     }
                 },
                 failure: function (response) {
-                    $("#rsDlg .modal-body").html(response.responseText);
-                    $("#rsDlg").modal();
+                    $('.toast-body').text(response.responseText);
+                    $('.toast').toast({ animation: true, delay: 2000 });
+                    $('.toast').toast('show');
                 },
                 error: function (response) {
-                    $("#rsDlg .modal-body").html(response.responseText);
-                    $("#rsDlg").modal();
+                    $('.toast-body').text(response.responseText);
+                    $('.toast').toast({ animation: true, delay: 2000 });
+                    $('.toast').toast('show');
                 }
             });
         }
@@ -170,21 +174,26 @@ $(function () {
                         window.location.href = "/Manage/CourtCase/AgendasByEmail?email=" + params.uploaderemail;
                         //});
                         $("#myModal").modal('hide');
-                        $("#rsDlg .modal-body").html("Upload succesully.");
-                        $("#rsDlg").modal();                        
+
+                        $('.toast-body').text("Upload succesully.");
+                        $('.toast').toast({ animation: true, delay: 2000 });
+                        $('.toast').toast('show');
                     } else {
                         $("#myModal").modal("hide");
-                        $("#rsDlg .modal-body").html("Upload failed.");
-                        $("#rsDlg").modal();
+                        $('.toast-body').text("Upload failed.");
+                        $('.toast').toast({ animation: true, delay: 2000 });
+                        $('.toast').toast('show');
                     }
                 },
                 failure: function (response) {
-                    $("#rsDlg .modal-body").html(response.responseText);
-                    $("#myModal").modal('hide');
+                    $('.toast-body').text(response.responseText);
+                    $('.toast').toast({ animation: true, delay: 2000 });
+                    $('.toast').toast('show');
                 },
                 error: function (response) {
-                    $("#rsDlg .modal-body").html(response.responseText);
-                    $("#myModal").modal('hide');
+                    $('.toast-body').text(response.responseText);
+                    $('.toast').toast({ animation: true, delay: 2000 });
+                    $('.toast').toast('show');
                 }
             });
         }
