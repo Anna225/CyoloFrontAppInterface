@@ -21,7 +21,7 @@ function downloadCourtCase(elem, id) {
     $('.toast-body').text("Downloaded sucessuflly!");
     $('.toast').toast({ animation: true, delay: 2000 });
     $('.toast').toast('show');
-
+    /*
     var test =
         "BEGIN:VCALENDAR\n" +
         "CALSCALE:GREGORIAN\n" +
@@ -66,7 +66,7 @@ function downloadCourtCase(elem, id) {
     a.href = window.URL.createObjectURL(data);
     a.click();
     return;
-
+    */
 }
 function convertDate(date) {
     var event = new Date(date).toISOString();
@@ -109,5 +109,3 @@ function makeIcsFile(date, summary, description) {
     
     return icsFile;
 }
-//var create = document.getElementById("create");
-//create.addEventListener("click", createFile, false);
