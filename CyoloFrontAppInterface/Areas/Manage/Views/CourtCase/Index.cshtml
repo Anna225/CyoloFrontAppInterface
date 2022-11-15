@@ -70,7 +70,7 @@
                     <td>@item.courtcase.hearingType</td>
                     <td style="min-width: 160px;">
                         @{string courtcaseid = Convert.ToString(item.courtcase.courtCaseNo);}
-                        <a href="#" class="btn btn-success btn-approve" data-caseno="@item.courtcase.courtCaseNo" data-email="@ViewData["Message"]">Available</a>
+                        <a href="#" class="btn btn-success btn-approve" data-caseno="@item.courtcase.courtCaseNo" onclick="approveAgenda(this)" data-email="@ViewData["Message"]">Available</a>
                         @Html.ActionLink("Request", "Match", "CourtCase",
                             new { courtCaseNo =  courtcaseid },
                             new { @class = "btn btn-warning"}

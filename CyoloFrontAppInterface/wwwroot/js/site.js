@@ -330,3 +330,36 @@ function compare(a, b) {
     return 0;
 }
 
+function approveAgenda(elem) {
+    var caseno = $(elem).data("caseno");
+    if (caseno != null) {
+        $.ajax({
+            type: "GET",
+            url: "/Manage/CourtCase/Approve?caseno=" + caseno,
+            data: caseno,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                if (response != null) {
+                    $('.toast-body').text(response.value);
+                    $('.toast').toast({ animation: true, delay: 2000 });
+                    $('.toast').toast('show');
+                } else {
+                    $('.toast-body').text(response.value);
+                    $('.toast').toast({ animation: true, delay: 2000 });
+                    $('.toast').toast('show');
+                }
+            },
+            failure: function (response) {
+                $('.toast-body').text(response.responseText);
+                $('.toast').toast({ animation: true, delay: 2000 });
+                $('.toast').toast('show');
+            },
+            error: function (response) {
+                $('.toast-body').text(response.responseText);
+                $('.toast').toast({ animation: true, delay: 2000 });
+                $('.toast').toast('show');
+            }
+        });
+    }
+}
