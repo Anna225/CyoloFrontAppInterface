@@ -54,14 +54,16 @@
                     str = str.Substring(0, str.Length - 1);
                 }
                 <tr>
-                    <td>@(i + 1)</td>
+                    <td>@(i + 1)
+                        <button class="btn btn-download" title="Download" onclick="downloadCourtCase(this, @item.courtcase.id)"><img src="/images/download.svg" /></button>
+                    </td>
                     <td>@item.courtcase.courtCaseNo</td>
                     <td>@str</td>
                     <td>@item.courtcase.chamberID</td>
                     <td>@item.courtcase.hearingDate</td>
                     <td>@item.courtcase.hearingTime</td>
                     <td>@item.courtcase.hearingType</td>
-                    <td style="min-width: 230px;">
+                    <td style="min-width: 160px;">
                         @{string courtcaseid = Convert.ToString(item.courtcase.courtCaseNo);}
                         <a href="#" class="btn btn-success btn-approve" data-caseno="@item.courtcase.courtCaseNo" data-email="@ViewData["Message"]">Available</a>
                         @Html.ActionLink("Request", "Match", "CourtCase",

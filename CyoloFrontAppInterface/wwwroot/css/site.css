@@ -117,16 +117,28 @@ table * {
     font-size: 15px;
 }
 
-button.btn.btn-warning {
-    background-color: orange;
-    color: black;
-    border: 1px solid orange;
+.btn.btn-warning {
+    background-color: grey;
+    color: white;
+    border: 1px solid grey;
 }
 
-button.btn.btn-warning:hover {
-    background-color: #AF76F5;
-    border: 1px solid #AF76F5;
-    color: black;
+.btn.btn-warning:hover {
+    background-color: darkgrey;
+    border: 1px solid darkgrey;
+    color: white;
+}
+
+.btn.btn-success {
+    background-color: #40667d;
+    color: white !important;
+    border: 1px solid #40667d;
+}
+
+.btn.btn-success:hover {
+    background-color: #36586d;
+    border: 1px solid #36586d;
+    color: white;
 }
 
 #myModal label {
@@ -144,8 +156,24 @@ p.b {
     display: block;
 }
 
+tr td:first-child {
+    text-align: center;
+}
+
 td > a.btn {
-    width: 100px;
+    width: 80px;
     margin-top: 2px;
     margin-bottom: 2px;
+}
+
+#result_wrapper table * {
+    font-size: 13px;
+}
+
+.btn-download {
+    background-color: slategrey !important;
+}
+
+.btn-download:hover {
+    background-color: darkgrey !important;
 }
