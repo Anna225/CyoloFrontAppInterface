@@ -205,6 +205,7 @@ function compare(a, b) {
 }
 
 function approveAgenda(elem) {
+    // e.preventDefault();
     var caseno = $(elem).data("caseno");
     if (caseno != null) {
         $.ajax({

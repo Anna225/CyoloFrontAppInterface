@@ -16,9 +16,10 @@ namespace CyoloFrontAppInterface.Data
         private string _ocp_apim_subscription_key;
         public BackendServerAPI()
         {
-            _client = new RestClient("https://cyoloapi.azurewebsites.net");
-            // _client = new RestClient("https://cyoloapigateway.azure-api.net");
-            _ocp_apim_subscription_key = "d23d9c7c11da4b228417e567c85fa80c";
+            // _client = new RestClient("https://cyoloapi.azurewebsites.net");  is restricted by IP address 20.221.103.231/32.
+            _client = new RestClient("https://lawyerapi.azure-api.net");
+            _ocp_apim_subscription_key = "f05341ebf7244456b8c3bed62c5795a0";
+            // or _ocp_apim_subscription_key = "f32b5ffa39a54d50b82dd80b7fd06bc6";
         }
 
         public void Dispose()
