@@ -132,7 +132,7 @@ function makeIcsFile(date, summary, description) {
         customConvertDate(date.end.day) + "T" + customConvertTime(date.end.time)
         "\n" +
         "END:VEVENT\n" +
-        "END:VCALENDAR"; alert(test)
+        "END:VCALENDAR";
     var data = new File([test], { type: "text/calendar" });
     // If we are replacing a previously generated file we need to
     // manually revoke the object URL to avoid memory leaks.
