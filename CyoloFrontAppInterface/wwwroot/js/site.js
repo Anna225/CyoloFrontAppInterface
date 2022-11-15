@@ -18,62 +18,6 @@ $(function () {
 
     $('#result').DataTable();
 
-    //$('#myTable').DataTable(
-    //    {
-    //        ajax: {
-    //            url: "Home/GetCourtCaseList",
-    //            type: "POST",
-    //        },
-    //        processing: true,
-    //        serverSide: true,
-    //        filter: true,
-    //        columns: [
-    //            { data: "CourtCaseNo", name: "CourtCaseNo" },
-    //            { data: "HearingGeneral", name: "HearingGeneral" },
-    //            { data: "ChamberID", name: "ChamberID" },
-    //            { data: "HearingDate", name: "HearingDate" },
-    //            { data: "HearingTime", name: "HearingTime" },
-    //            { data: "HearingType", name: "HearingType" },
-    //        ]
-    //    }
-    //);
-
-
-    $(".btn-approve").click(function (e) {
-        e.preventDefault();
-        var caseno = $(e.target).data("caseno");
-        if (caseno != null) {
-            $.ajax({
-                type: "GET",
-                url: "/Manage/CourtCase/Approve?caseno=" + caseno,
-                data: caseno,
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: function (response) {
-                    if (response != null) {
-                        $('.toast-body').text(response.value);
-                        $('.toast').toast({ animation: true, delay: 2000 });
-                        $('.toast').toast('show');
-                    } else {
-                        $('.toast-body').text(response.value);
-                        $('.toast').toast({ animation: true, delay: 2000 });
-                        $('.toast').toast('show');
-                    }
-                },
-                failure: function (response) {
-                    $('.toast-body').text(response.responseText);
-                    $('.toast').toast({ animation: true, delay: 2000 });
-                    $('.toast').toast('show');
-                },
-                error: function (response) {
-                    $('.toast-body').text(response.responseText);
-                    $('.toast').toast({ animation: true, delay: 2000 });
-                    $('.toast').toast('show');
-                }
-            });
-        }
-    });
-
     $(".btn-upload").click(function (e) {
 
         e.preventDefault();
@@ -219,79 +163,9 @@ $(function () {
     if (window.location.href.includes("Match") || window.location.href.includes("GetByCourtCase")) {
         getJuridictionList();
     }
-    /*
-    $("#select_juridiction_id").select2({
-        closeOnSelect: true,
-        language: 'nl',
-        placeholder: "Rechtscollege",
-        minimumInputLength: 3,
-        ajax: {
-            url: "/cgi-main/ajax-request-json.pl",
-            dataType: 'json',
-            delay: 250,
-            data: function (term) {
-                return {
-                    requete: 'json_list',
-                    liste: 'juridiction',
-                    backend: 'N',
-                    search: term.term,
-                    lg: 'nl',
-                };
-            },
-            processResults: function (data, page) { // parse the results into the format expected by Select2.
-                // since we are using custom formatting functions we do not need to alter the remote JSON data
-                if (data.message !== '') { return { results: [] }; }
-                if (data.message == '') { return { results: data.data }; }
-            },
-            cache: true
-        },
-        templateResult: formatResultJuridiction, // omitted for brevity, see the source of this page
-        templateSelection: formatSelectionJuridiction,  // omitted for brevity, see the source of this page
-        escapeMarkup: function (m) { return m; } // we do not want to escape markup since we are displaying html in results
-    });
-    */
-
-    //$("#select_juridiction_id").on('change', function (e) {
-    //    var tmp = this.value.split('-');
-    //    $('#jur_num').val(tmp[0]);
-    //    $('#jur_annexe').val(tmp[1]);
-    //    $('#liste_fixations').html('');
-    //    show_div('/cgi-dossier/ajax-request-html.pl', 'show_fixations_form', tmp[0] + '--' + tmp[1] + '--nl', 'suite_formulaire');
-    //}); 
 
 });
 
-/*
-$("#select_juridiction_id").select2({
-    closeOnSelect: true,
-    language: 'nl',
-    placeholder: "Rechtscollege",
-    minimumInputLength: 3,
-    ajax: {
-        url: "/cgi-main/ajax-request-json.pl",
-        dataType: 'json',
-        delay: 250,
-        data: function (term) {
-            return {
-                requete: 'json_list',
-                liste: 'juridiction',
-                backend: 'N',
-                search: term.term,
-                lg: 'nl',
-            };
-        },
-        processResults: function (data, page) { // parse the results into the format expected by Select2.
-            // since we are using custom formatting functions we do not need to alter the remote JSON data
-            if (data.message !== '') { return { results: [] }; }
-            if (data.message == '') { return { results: data.data }; }
-        },
-        cache: true
-    },
-    templateResult: formatResultJuridiction, // omitted for brevity, see the source of this page
-    templateSelection: formatSelectionJuridiction,  // omitted for brevity, see the source of this page
-    escapeMarkup: function (m) { return m; } // we do not want to escape markup since we are displaying html in results
-});
-*/
 function formatResultJuridiction(data) {
     if (!data.id) return data.message;
     var res = data.type_juridiction.split(' - ');
