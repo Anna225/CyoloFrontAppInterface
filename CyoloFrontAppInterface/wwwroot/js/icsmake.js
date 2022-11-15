@@ -33,59 +33,7 @@ function downloadCourtCase(elem, id) {
     $('.toast-body').text("Downloaded sucessuflly!");
     $('.toast').toast({ animation: true, delay: 2000 });
     $('.toast').toast('show');
-    /*
-    var test =
-        "BEGIN:VCALENDAR\n" +
-        "CALSCALE:GREGORIAN\n" +
-        "METHOD:PUBLISH\n" +
-        "PRODID:-//Test Cal//EN\n" +
-        "VERSION:2.0\n" +
-        //
-        "BEGIN: VEVENT\n" + 
-        "CREATED: 20151219T021727Z\n" + 
-        "DTEND; TZID=America/Toronto:20170515T110000\n" + 
-        "DTSTAMP: 20151219T022251Z\n" + 
-        "DTSTART; TZID=America/Toronto:20170515T100000\n" + 
-        "EXDATE; TZID=America/Toronto:20170516T100000\n" + 
-        "EXDATE; TZID=America/Toronto:20170517T100000\n" + 
-        "LAST - MODIFIED: 20151219T022251Z\n" + 
-        "RRULE: FREQ = DAILY; UNTIL = 20170519T035959Z\n" + 
-        "SEQUENCE: 0\n" + 
-        "SUMMARY: Meeting\n" + 
-        "TRANSP: OPAQUE\n" + 
-        "UID: 21B97459-D97B-4B23-AF2A-E2759745C299\n" + 
-        "END: VEVENT\n" + 
-        //
-        "BEGIN: VEVENT\n" + 
-        "CREATED: " + convertDate(new Date()) + "\n" +
-        "DTEND; TZID=America/Toronto:" + 
-        customConvertDate($(tds[4]).text()) + "T" +
-        customConvertTime($(tds[5]).text()) + "\n" +
-        "DTSTAMP: 20151219T022251Z\n" + 
-        "DTSTART; TZID = America/Toronto:" +
-        customConvertDate($(tds[4]).text()) + "T" + 
-        customConvertTime($(tds[5]).text()) + "\n" +
-        "LAST-MODIFIED: " + convertDate(new Date()) + "\n" +
-        "RECURRENCE-ID; TZID=America/Toronto:20170518T100000\n" + 
-        "SEQUENCE: 0\n" + 
-        "SUMMARY:CourtCaseNo: " + $(tds[1]).text() + "\n" + 
-        "DESCRIPTION:" + $(tds[2]).text() + "\n" +
-        "TRANSP: OPAQUE\n" + 
-        "UID: 21B97459-D97B-4B23-AF2A-E2759745C299\n" + 
-        "END: VEVENT\n" +
-        //
-        "END: VCALENDAR";
-    var data = new File([test], { type: "text/calendar" });
-
-    // If we are replacing a previously generated file we need to
-    // manually revoke the object URL to avoid memory leaks.
-    if (icsFile !== null) {
-        window.URL.revokeObjectURL(icsFile);
-    }
-    a.download = 'details.ics';
-    a.href = window.URL.createObjectURL(data);
-    a.click();
-    */
+    
     return;
 }
 function convertDate(date) {
