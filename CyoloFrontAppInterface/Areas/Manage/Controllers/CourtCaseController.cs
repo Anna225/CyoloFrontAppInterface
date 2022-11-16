@@ -44,8 +44,13 @@ namespace CyoloFrontAppInterface.Areas.Manage.Controllers
 
             ViewData["Message"] = HttpContext.Session.GetString("userinfo");
             ViewBag.Today = date;
-            ViewBag.Email = email;            
-
+            ViewBag.Email = email;
+            var t = Task.Run(async delegate
+            {
+                await Task.Delay(12000);
+                return 42;
+            });
+            t.Wait();
             return View();
         }
 
@@ -77,6 +82,14 @@ namespace CyoloFrontAppInterface.Areas.Manage.Controllers
             ViewData["Message"] = HttpContext.Session.GetString("userinfo");
             ViewBag.Today = date;
             ViewBag.Email = name;
+
+            var t = Task.Run(async delegate
+            {
+                await Task.Delay(12000);
+                return 42;
+            });
+            t.Wait();
+
             return View();
         }
 
@@ -120,7 +133,12 @@ namespace CyoloFrontAppInterface.Areas.Manage.Controllers
             ViewBag.AvailableModel = await ls.GetAvailableLawyersByCourtCaseNo(courtCaseNo);
             ViewBag.No = courtCaseNo;
             ViewData["Message"] = HttpContext.Session.GetString("userinfo");
-
+            var t = Task.Run(async delegate
+            {
+                await Task.Delay(12000);
+                return 42;
+            });
+            t.Wait();
             return View();
         }
 
@@ -167,6 +185,12 @@ namespace CyoloFrontAppInterface.Areas.Manage.Controllers
             ViewBag.AvailableModel = await ls.GetByCourtCase(collection);
             ViewData["Message"] = HttpContext.Session.GetString("userinfo");
             ViewBag.Number = collection["courtcaseno"];
+            var t = Task.Run(async delegate
+            {
+                await Task.Delay(12000);
+                return 42;
+            });
+            t.Wait();
             return View();
         }
 

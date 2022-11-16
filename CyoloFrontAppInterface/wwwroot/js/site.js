@@ -205,6 +205,24 @@ function compare(a, b) {
 }
 
 function approveAgenda(elem) {
+    /*
+    options = {
+        tapToDismiss: true,
+        toastClass: 'toast',
+        containerId: 'toast-container',
+        debug: false,
+        fadeIn: 3000,
+        fadeOut: 4000,
+        extendedTimeOut: 1000,
+        iconClass: 'toast-info',
+        positionClass: 'toast-top-right',
+        timeOut: 5000, // Set timeOut to 0 to make it sticky
+        titleClass: 'toast-title',
+        messageClass: 'toast-message'
+    }
+    $('.toast').toast(options);
+    $('.toast').toast('show'); return;
+    */
     // e.preventDefault();
     var caseno = $(elem).data("caseno");
     if (caseno != null) {
@@ -217,7 +235,7 @@ function approveAgenda(elem) {
             success: function (response) {
                 if (response != null) {
                     $('.toast-body').text(response.value);
-                    $('.toast').toast({ animation: true, delay: 2000 });
+                    $('.toast').toast({ animation: true, delay: 2000, fadeIn: true, fadeDelay: 2500, fadeOut: true });
                     $('.toast').toast('show');
                 } else {
                     $('.toast-body').text(response.value);
