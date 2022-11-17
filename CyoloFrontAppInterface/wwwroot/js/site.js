@@ -16,7 +16,7 @@ $(function () {
         uiLibrary: 'bootstrap4'
     });
 
-    // $('#result').DataTable();
+    $('#result').DataTable();
 
     $(".btn-upload").click(function (e) {
 
