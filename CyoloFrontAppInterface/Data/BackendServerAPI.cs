@@ -98,6 +98,16 @@ namespace CyoloFrontAppInterface.Data
             var response = await _client.PostAsync(request);
             return JsonConvert.DeserializeObject<dynamic>(response.Content);
         }
+
+        public async Task<dynamic> GetBySearchDto(SearchDto searchdto)
+        {
+            var request = new RestRequest($"/api/Lawyers/GetByCourtCase");
+            request.AddHeader("ocp-apim-subscription-key", _ocp_apim_subscription_key);
+            request.AddHeader("Accept", "application/json");
+            request.AddJsonBody(searchdto);
+            var response = await _client.PostAsync(request);
+            return JsonConvert.DeserializeObject<dynamic>(response.Content);
+        }
         public async Task<dynamic> IsExist(UserDto userdto)
         {
             var request = new RestRequest($"/api/Auth/IsExist");

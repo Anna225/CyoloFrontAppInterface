@@ -117,9 +117,21 @@ namespace CyoloFrontAppInterface.Areas.Manage.Controllers
 
             BackendServerAPI ls = new BackendServerAPI();
             
-            ViewBag.CourtCase = await ls.GetCourtCaseByNo(courtCaseNo);
+            CourtCaseAgendaDto courtcase = await ls.GetCourtCaseByNo(courtCaseNo);
+
+            SearchDto retval = new SearchDto {
+                CourtCaseNo = courtcase.courtCaseNo,
+                HearingGeneral = courtcase.hearingGeneral,
+                ChamberID = courtcase.chamberId,
+                HearingDate = courtcase.hearingDate,
+                HearingTime = courtcase.hearingTime
+            };
+
+            ViewBag.CourtCase = courtcase;
+            ViewBag.AvailableModel = await ls.GetBySearchDto(retval);
+
             ViewBag.Lawyer = await ls.GetLawyerByEmail(HttpContext.Session.GetString("userinfo"));
-            ViewBag.AvailableModel = await ls.GetAvailableLawyersByCourtCaseNo(courtCaseNo);
+            // ViewBag.AvailableModel = await ls.GetAvailableLawyersByCourtCaseNo(courtCaseNo);
             ViewBag.No = courtCaseNo;
             ViewData["Message"] = HttpContext.Session.GetString("userinfo");
             
