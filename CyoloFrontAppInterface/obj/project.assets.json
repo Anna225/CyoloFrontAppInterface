@@ -10580,11 +10580,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\CYOLO\\BASIC\\CyoloFrontAppInterface\\CyoloFrontAppInterface\\CyoloFrontAppInterface.csproj",
+      "projectUniqueName": "E:\\LawyerCyoloPro\\Backup2022-12-05\\CyoloFrontAppInterface\\CyoloFrontAppInterface\\CyoloFrontAppInterface.csproj",
       "projectName": "CyoloFrontAppInterface",
-      "projectPath": "D:\\CYOLO\\BASIC\\CyoloFrontAppInterface\\CyoloFrontAppInterface\\CyoloFrontAppInterface.csproj",
+      "projectPath": "E:\\LawyerCyoloPro\\Backup2022-12-05\\CyoloFrontAppInterface\\CyoloFrontAppInterface\\CyoloFrontAppInterface.csproj",
       "packagesPath": "C:\\Users\\Yaroslov\\.nuget\\packages\\",
-      "outputPath": "D:\\CYOLO\\BASIC\\CyoloFrontAppInterface\\CyoloFrontAppInterface\\obj\\",
+      "outputPath": "E:\\LawyerCyoloPro\\Backup2022-12-05\\CyoloFrontAppInterface\\CyoloFrontAppInterface\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
